@@ -11,6 +11,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QVector>
+#include "model/globalvariable.h"
 
 class ValoracionController : public QObject{
 Q_OBJECT

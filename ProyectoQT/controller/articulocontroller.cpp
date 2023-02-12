@@ -2,7 +2,6 @@
 ArticuloController::ArticuloController( )
 {
 
-
 }
 void ArticuloController::insertarArticulo(){
 	QJsonObject jsonObject;
@@ -13,7 +12,7 @@ void ArticuloController::insertarArticulo(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("jessica2dam");
+        args.append("josedb");
         args.append(2);
         args.append("1234");
         args.append("simarropop.articulo");
@@ -35,7 +34,7 @@ void ArticuloController::insertarArticulo(){
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
 	QNetworkRequest request;
-	request.setUrl(QUrl("http://192.168.8.10:8069/jsonrpc"));
+	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
 	if (reply->error() != QNetworkReply::NoError) {
@@ -61,7 +60,7 @@ void ArticuloController::selectAll(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("jessica2dam");
+        args.append("josedb");
         args.append(2);
         args.append("1234");
         args.append("simarropop.articulo");
@@ -85,7 +84,7 @@ void ArticuloController::selectAll(){
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
 	QNetworkRequest request;
-	request.setUrl(QUrl("http://192.168.8.10:8069/jsonrpc"));
+	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
 	
@@ -113,7 +112,6 @@ void ArticuloController::slotPeticion(QNetworkReply* reply){
 
 void ArticuloController::getArticulos(QVector<Articulo*> *listaArticulo){
  	QJsonObject jsonResponse = responseData.object();
-            
             
             if(jsonResponse.contains("result")){
             	QJsonArray result = jsonResponse["result"].toArray();

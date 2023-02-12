@@ -13,7 +13,7 @@ void CategoriaController::insertarCategoria(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("jessica2dam");
+        args.append("josedb");
         args.append(2);
         args.append("1234");
         args.append("simarropop.categoria");
@@ -32,7 +32,51 @@ void CategoriaController::insertarCategoria(){
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
 	QNetworkRequest request;
-	request.setUrl(QUrl("http://192.168.8.10:8069/jsonrpc"));
+	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
+	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
+	QNetworkReply *reply = manager->post(request, postData);
+	if (reply->error() != QNetworkReply::NoError) {
+            qDebug() << "Error: " << reply->errorString();
+        } else {
+        
+        qDebug() << reply->readAll();
+        }
+
+
+
+
+
+}
+void CategoriaController::editarCategoria(Categoria *categoria){
+	QJsonObject jsonObject;
+	jsonObject.insert("jsonrpc", "2.0");
+        jsonObject.insert("method", "call");
+        jsonObject.insert("id", 970248153);
+        QJsonObject params;
+        params.insert("service", "object");
+        params.insert("method", "execute");
+        QJsonArray args;
+        args.append("josedb");
+        args.append(2);
+        args.append("1234");
+        args.append("simarropop.categoria");
+        args.append("write");
+        
+        QJsonObject fields;
+        QJsonArray idArray;
+        idArray.append(categoria->id);
+        fields.insert("name","editado");
+        fields.insert("descripcion_categoria","editado");
+  
+        args.append(idArray);
+        args.append(fields);
+        params.insert("args", args);
+        jsonObject.insert("params", params);
+        
+        QByteArray postData = QJsonDocument(jsonObject).toJson();
+	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	QNetworkRequest request;
+	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
 	if (reply->error() != QNetworkReply::NoError) {
@@ -48,7 +92,6 @@ void CategoriaController::insertarCategoria(){
 
 }
 
-
 void CategoriaController::selectAll(){
 	QJsonObject jsonObject;
 	jsonObject.insert("jsonrpc", "2.0");
@@ -58,7 +101,7 @@ void CategoriaController::selectAll(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("jessica2dam");
+        args.append("josedb");
         args.append(2);
         args.append("1234");
         args.append("simarropop.categoria");
@@ -77,7 +120,7 @@ void CategoriaController::selectAll(){
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
 	QNetworkRequest request;
-	request.setUrl(QUrl("http://192.168.8.10:8069/jsonrpc"));
+	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
 	

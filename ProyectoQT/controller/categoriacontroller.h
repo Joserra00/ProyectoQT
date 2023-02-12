@@ -11,6 +11,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QVector>
+#include "model/globalvariable.h"
 
 class CategoriaController : public QObject{
 Q_OBJECT
@@ -21,7 +22,7 @@ public:
 	void insertarCategoria();
 	void getCategorias(QVector<Categoria*> *);
 	QJsonDocument responseData;
-	
+	void editarCategoria(Categoria *categoria);
 public slots:
 
 	void slotPeticion(QNetworkReply*);

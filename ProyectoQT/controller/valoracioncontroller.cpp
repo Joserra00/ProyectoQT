@@ -13,7 +13,7 @@ void ValoracionController::insertarValoracion(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("jessica2dam");
+        args.append("josedb");
         args.append(2);
         args.append("1234");
         args.append("simarropop.valoracion");
@@ -33,7 +33,7 @@ void ValoracionController::insertarValoracion(){
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
 	QNetworkRequest request;
-	request.setUrl(QUrl("http://192.168.8.10:8069/jsonrpc"));
+	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
 	if (reply->error() != QNetworkReply::NoError) {
@@ -59,7 +59,7 @@ void ValoracionController::selectAll(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("jessica2dam");
+        args.append("josedb");
         args.append(2);
         args.append("1234");
         args.append("simarropop.valoracion");
@@ -79,7 +79,7 @@ void ValoracionController::selectAll(){
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
 	QNetworkRequest request;
-	request.setUrl(QUrl("http://192.168.8.10:8069/jsonrpc"));
+	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
 	

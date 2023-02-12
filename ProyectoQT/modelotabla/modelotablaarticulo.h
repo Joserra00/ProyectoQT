@@ -1,5 +1,5 @@
-#ifndef _MODELOTABLACATEGORIA_H_
-#define _MODELOTABLACATEGORIA_H_
+#ifndef _MODELOTABLAARTICULO_H_
+#define _MODELOTABLAARTICULO_H_
 #include <QModelIndex>
 #include <QAbstractTableModel>
 #include <QTableView>

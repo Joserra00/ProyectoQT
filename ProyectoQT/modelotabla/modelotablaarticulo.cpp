@@ -33,6 +33,22 @@ QVariant ModeloTablaArticulo::data(const QModelIndex &index, int role)const{
 			cadena=QString::number(listaArticulo->at(row)->categoria);
 			
 			break;
+		case 3:
+			cadena=QString::number(listaArticulo->at(row)->precio);
+			
+			break;
+		case 4:
+			cadena=listaArticulo->at(row)->descripcion;
+			
+			break;
+		case 5:
+			cadena=listaArticulo->at(row)->ubicacion;
+			
+			break;
+		case 6:
+			cadena=QString::number(listaArticulo->at(row)->usuario);
+			
+			break;
 
 	
 	}
@@ -49,7 +65,12 @@ QVariant ModeloTablaArticulo::headerData(int section,Qt::Orientation orientation
 			switch(section){
 				case 0: return QString("ID ");
 				case 1: return QString("Name ");
-				case 2: return QString("categoria ");
+				case 2: return QString("Categoria ");
+				case 3: return QString("Precio ");
+				case 4: return QString("Descripcion ");
+				case 5: return QString("Ubicacion ");
+				case 6: return QString("Usuario ");
+				
 				
 			}
 		}

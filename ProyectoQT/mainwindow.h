@@ -26,10 +26,16 @@
 #include <QTableView>
 #include "model/valoracion.h"
 #include "model/categoria.h"
+#include "model/articulo.h"
+#include "model/mensaje.h"
 #include "controller/categoriacontroller.h"
+#include "controller/articulocontroller.h"
+#include "controller/mensajecontroller.h"
 #include "modelotabla/modelotablacategoria.h"
 #include "modelotabla/modelotablavaloracion.h"
-
+#include "modelotabla/modelotablaarticulo.h"
+#include "modelotabla/modelotablamensaje.h"
+#include "dialogos/dcategoria.h"
 
 
 class MainWindow : public QMainWindow, public Ui::MainWindow {
@@ -40,7 +46,7 @@ public:
 	QTableView *tablaValoracion;
 	ModeloTablaValoracion *modeloTablaValoracion;
 	ValoracionController *valCtrl;
-	void crearTablaArticulo();
+	void crearTablaValoracion();
 	QVector <Valoracion*> listaValoracion;
 	
 	QTableView *tablaCategoria;
@@ -48,19 +54,30 @@ public:
 	CategoriaController *catCtrl;
 	void crearTablaCategoria();
 	QVector <Categoria*> listaCategoria;
+	DCategoria *dCategoria;
 	
 	QTableView *tablaArticulo;
-	ModeloTablaCategoria *modeloTablaArticulo;
+	ModeloTablaArticulo *modeloTablaArticulo;
 	ArticuloController *artCtrl;
 	void crearTablaArticulo();
 	QVector <Articulo*> listaArticulo;
+	
+	QTableView *tablaMensaje;
+	ModeloTablaMensaje *modeloTablaMensaje;
+	MensajeController *menCtrl;
+	void crearTablaMensaje();
+	QVector <Mensaje*> listaMensaje;
 
 public slots:
 	void slotEjemplo();
-	void slotDialogoArticulo(const QModelIndex &);
+	void slotDialogoValoracion(const QModelIndex &);
 	void slotPeticionValoracionTerminada();
 	void slotDialogoCategoria(const QModelIndex &);
 	void slotPeticionCategoriaTerminada();
+	void slotDialogoArticulo(const QModelIndex &);
+	void slotPeticionArticuloTerminada();
+	void slotDialogoMensaje(const QModelIndex &);
+	void slotPeticionMensajeTerminada();
 
 };
 
