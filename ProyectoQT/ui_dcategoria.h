@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dcategoria.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.3
+** Created by: Qt User Interface Compiler version 5.12.8
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -59,11 +59,11 @@ public:
 
     void retranslateUi(QDialog *DCategoria)
     {
-        DCategoria->setWindowTitle(QCoreApplication::translate("DCategoria", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("DCategoria", "Name", nullptr));
-        label_2->setText(QCoreApplication::translate("DCategoria", "Descripcion categoria", nullptr));
-        btnGuardar->setText(QCoreApplication::translate("DCategoria", "Guardar", nullptr));
-        btnCancelar->setText(QCoreApplication::translate("DCategoria", "Cancelar", nullptr));
+        DCategoria->setWindowTitle(QApplication::translate("DCategoria", "Dialog", nullptr));
+        label->setText(QApplication::translate("DCategoria", "Name", nullptr));
+        label_2->setText(QApplication::translate("DCategoria", "Descripcion categoria", nullptr));
+        btnGuardar->setText(QApplication::translate("DCategoria", "Guardar", nullptr));
+        btnCancelar->setText(QApplication::translate("DCategoria", "Cancelar", nullptr));
     } // retranslateUi
 
 };

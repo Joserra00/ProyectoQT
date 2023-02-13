@@ -4,9 +4,9 @@
 
 namespace globalvariable
 {
-    static const QString  JSONRPC_URL= "http://192.168.8.10:8069/jsonrpc";
+    static const QString  JSONRPC_URL= "http://192.168.0.17:8069/jsonrpc";
     static const QString  PASSWORD= "1234"; 
-    static const QString  BBDD= "jessica2dam"; 
+    static const QString  BBDD= "josedb"; 
 }
 	
 
