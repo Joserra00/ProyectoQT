@@ -6,7 +6,7 @@ ModeloTablaValoracion::ModeloTablaValoracion(QVector <Valoracion*> *listaValorac
 
 }
 int ModeloTablaValoracion::columnCount(const QModelIndex &)const{
-	return 4;
+	return 5;
 }
 
 int ModeloTablaValoracion::rowCount(const QModelIndex &)const{
@@ -38,6 +38,10 @@ QVariant ModeloTablaValoracion::data(const QModelIndex &index, int role)const{
 			cadena=QString::number(listaValoracion->at(row)->puntuacion);
 			
 			break;
+		case 4:
+			cadena=QString::number(listaValoracion->at(row)->usuario);
+			
+			break;
 	
 	}
 	
@@ -55,6 +59,7 @@ QVariant ModeloTablaValoracion::headerData(int section,Qt::Orientation orientati
 				case 1: return QString("Name ");
 				case 2: return QString("Opinion ");
 				case 3: return QString("Puntuacion ");
+				case 4: return QString("Usuario ");
 				
 			}
 		}

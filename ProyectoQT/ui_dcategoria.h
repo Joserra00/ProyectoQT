@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dcategoria.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.8
+** Created by: Qt User Interface Compiler version 5.15.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -12,31 +12,27 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QDialogButtonBox>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_DCategoria
 {
 public:
-    QDialogButtonBox *buttonBox;
     QLabel *label;
     QLabel *label_2;
     QLineEdit *nameEditLine;
     QLineEdit *descEditLine;
+    QPushButton *btnGuardar;
+    QPushButton *btnCancelar;
 
     void setupUi(QDialog *DCategoria)
     {
         if (DCategoria->objectName().isEmpty())
             DCategoria->setObjectName(QString::fromUtf8("DCategoria"));
         DCategoria->resize(545, 402);
-        buttonBox = new QDialogButtonBox(DCategoria);
-        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-        buttonBox->setGeometry(QRect(170, 320, 341, 32));
-        buttonBox->setOrientation(Qt::Horizontal);
-        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         label = new QLabel(DCategoria);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(100, 80, 71, 21));
@@ -45,23 +41,29 @@ public:
         label_2->setGeometry(QRect(96, 130, 151, 31));
         nameEditLine = new QLineEdit(DCategoria);
         nameEditLine->setObjectName(QString::fromUtf8("nameEditLine"));
-        nameEditLine->setGeometry(QRect(270, 70, 113, 25));
+        nameEditLine->setGeometry(QRect(270, 70, 191, 31));
         descEditLine = new QLineEdit(DCategoria);
         descEditLine->setObjectName(QString::fromUtf8("descEditLine"));
-        descEditLine->setGeometry(QRect(270, 130, 113, 25));
+        descEditLine->setGeometry(QRect(270, 130, 191, 31));
+        btnGuardar = new QPushButton(DCategoria);
+        btnGuardar->setObjectName(QString::fromUtf8("btnGuardar"));
+        btnGuardar->setGeometry(QRect(250, 320, 89, 25));
+        btnCancelar = new QPushButton(DCategoria);
+        btnCancelar->setObjectName(QString::fromUtf8("btnCancelar"));
+        btnCancelar->setGeometry(QRect(380, 320, 89, 25));
 
         retranslateUi(DCategoria);
-        QObject::connect(buttonBox, SIGNAL(accepted()), DCategoria, SLOT(accept()));
-        QObject::connect(buttonBox, SIGNAL(rejected()), DCategoria, SLOT(reject()));
 
         QMetaObject::connectSlotsByName(DCategoria);
     } // setupUi
 
     void retranslateUi(QDialog *DCategoria)
     {
-        DCategoria->setWindowTitle(QApplication::translate("DCategoria", "Dialog", nullptr));
-        label->setText(QApplication::translate("DCategoria", "Name", nullptr));
-        label_2->setText(QApplication::translate("DCategoria", "Descripcion categoria", nullptr));
+        DCategoria->setWindowTitle(QCoreApplication::translate("DCategoria", "Dialog", nullptr));
+        label->setText(QCoreApplication::translate("DCategoria", "Name", nullptr));
+        label_2->setText(QCoreApplication::translate("DCategoria", "Descripcion categoria", nullptr));
+        btnGuardar->setText(QCoreApplication::translate("DCategoria", "Guardar", nullptr));
+        btnCancelar->setText(QCoreApplication::translate("DCategoria", "Cancelar", nullptr));
     } // retranslateUi
 
 };

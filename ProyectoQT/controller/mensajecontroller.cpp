@@ -12,7 +12,7 @@ void MensajeController::insertarMensaje(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("josedb");
+        args.append(globalvariable::BBDD);
         args.append(2);
         args.append("1234");
         args.append("simarropop.mensaje");
@@ -60,7 +60,7 @@ void MensajeController::selectAll(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("josedb");
+        args.append(globalvariable::BBDD);
         args.append(2);
         args.append("1234");
         args.append("simarropop.mensaje");

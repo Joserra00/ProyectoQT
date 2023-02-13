@@ -12,7 +12,7 @@ void ArticuloController::insertarArticulo(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("josedb");
+        args.append(globalvariable::BBDD);
         args.append(2);
         args.append("1234");
         args.append("simarropop.articulo");
@@ -60,7 +60,7 @@ void ArticuloController::selectAll(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("josedb");
+        args.append(globalvariable::BBDD);
         args.append(2);
         args.append("1234");
         args.append("simarropop.articulo");
@@ -87,7 +87,7 @@ void ArticuloController::selectAll(){
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
-	
+	qDebug()<<" No Se ha realizado la peticion";
 	connect(manager,SIGNAL(finished(QNetworkReply *)),
 		this,SLOT(slotPeticion(QNetworkReply *)));
       
@@ -97,6 +97,7 @@ void ArticuloController::selectAll(){
 
 }
 void ArticuloController::slotPeticion(QNetworkReply* reply){
+qDebug()<<"Se ha realizado la peticion";
  if (reply->error() != QNetworkReply::NoError) {
             qDebug() << "Error: " << reply->errorString();
         } else {

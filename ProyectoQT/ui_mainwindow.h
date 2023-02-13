@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.8
+** Created by: Qt User Interface Compiler version 5.15.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -50,9 +50,9 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        tabSimarropop->setTabText(tabSimarropop->indexOf(tab), QApplication::translate("MainWindow", "Tab 1", nullptr));
-        tabSimarropop->setTabText(tabSimarropop->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        tabSimarropop->setTabText(tabSimarropop->indexOf(tab), QCoreApplication::translate("MainWindow", "Tab 1", nullptr));
+        tabSimarropop->setTabText(tabSimarropop->indexOf(tab_2), QCoreApplication::translate("MainWindow", "Tab 2", nullptr));
     } // retranslateUi
 
 };

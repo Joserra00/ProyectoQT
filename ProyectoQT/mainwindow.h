@@ -36,6 +36,7 @@
 #include "modelotabla/modelotablaarticulo.h"
 #include "modelotabla/modelotablamensaje.h"
 #include "dialogos/dcategoria.h"
+#include "dialogos/dvaloracion.h"
 
 
 class MainWindow : public QMainWindow, public Ui::MainWindow {
@@ -48,6 +49,7 @@ public:
 	ValoracionController *valCtrl;
 	void crearTablaValoracion();
 	QVector <Valoracion*> listaValoracion;
+	DValoracion *dValoracion;
 	
 	QTableView *tablaCategoria;
 	ModeloTablaCategoria *modeloTablaCategoria;
@@ -72,8 +74,10 @@ public slots:
 	void slotEjemplo();
 	void slotDialogoValoracion(const QModelIndex &);
 	void slotPeticionValoracionTerminada();
+	void slotDialogoValoracionFinalizado(int );
 	void slotDialogoCategoria(const QModelIndex &);
 	void slotPeticionCategoriaTerminada();
+	void slotDialogoCategoriaFinalizado(int );
 	void slotDialogoArticulo(const QModelIndex &);
 	void slotPeticionArticuloTerminada();
 	void slotDialogoMensaje(const QModelIndex &);

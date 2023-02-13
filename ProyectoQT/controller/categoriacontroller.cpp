@@ -13,7 +13,7 @@ void CategoriaController::insertarCategoria(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("josedb");
+        args.append(globalvariable::BBDD);
         args.append(2);
         args.append("1234");
         args.append("simarropop.categoria");
@@ -56,7 +56,7 @@ void CategoriaController::editarCategoria(Categoria *categoria){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("josedb");
+        args.append(globalvariable::BBDD);
         args.append(2);
         args.append("1234");
         args.append("simarropop.categoria");
@@ -65,8 +65,8 @@ void CategoriaController::editarCategoria(Categoria *categoria){
         QJsonObject fields;
         QJsonArray idArray;
         idArray.append(categoria->id);
-        fields.insert("name","editado");
-        fields.insert("descripcion_categoria","editado");
+        fields.insert("name",categoria->name);
+        fields.insert("descripcion_categoria",categoria->descripcion_categoria);
   
         args.append(idArray);
         args.append(fields);
@@ -101,7 +101,7 @@ void CategoriaController::selectAll(){
         params.insert("service", "object");
         params.insert("method", "execute");
         QJsonArray args;
-        args.append("josedb");
+        args.append(globalvariable::BBDD);
         args.append(2);
         args.append("1234");
         args.append("simarropop.categoria");

@@ -7,15 +7,20 @@
 #include <QDialog>
 #include <QHBoxLayout>
 #include "model/categoria.h"
-
+#include "controller/categoriacontroller.h"
+#include <QMessageBox>
+#include <QCloseEvent>
 class DCategoria : public QDialog, public Ui::DCategoria {
 Q_OBJECT
 
 public:
 	DCategoria(Categoria *,QWidget *parent = NULL);
-
+	Categoria *categoria;
+	CategoriaController *catCtrl;
+	void closeEvent(QCloseEvent *);
 public slots:
-	void slotEjemplo();
+	void slotGuardarDialogo();
+	void slotCancelarDialogo();
 
 };
 

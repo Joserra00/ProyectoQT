@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent){
 		setupUi(this);
 		
 	dCategoria = NULL;
+	dValoracion = NULL;
 //instanciamos tablas
 	tabSimarropop->clear();
 	tablaValoracion = new QTableView();
@@ -54,8 +55,22 @@ void MainWindow::slotPeticionValoracionTerminada(){
 void MainWindow::slotDialogoValoracion(const QModelIndex &index){
 	int i =  index.row();
 	qDebug()<<listaValoracion.at(i)->name;
+	if(dValoracion==NULL){
+		dValoracion = new DValoracion(listaValoracion.at(i));
+		}
+		dValoracion->show();
+		connect(dValoracion,SIGNAL(finished(int)),
+		this,SLOT(slotDialogoValoracionFinalizado(int)));
 
+
+}
+void MainWindow::slotDialogoValoracionFinalizado(int result) {
+	if(result==QDialog::Accepted || result==QDialog::Rejected){
+		dValoracion=NULL;
+		delete dValoracion;
 	
+	}
+
 
 
 }
@@ -104,8 +119,18 @@ void MainWindow::slotDialogoCategoria(const QModelIndex &index){
 		dCategoria = new DCategoria(listaCategoria.at(i));
 		}
 		dCategoria->show();
+	connect(dCategoria,SIGNAL(finished(int)),
+		this,SLOT(slotDialogoCategoriaFinalizado(int)));
 
 
+
+}
+void MainWindow::slotDialogoCategoriaFinalizado(int result){
+	if(result==QDialog::Accepted || result==QDialog::Rejected){
+		dCategoria=NULL;
+		delete dCategoria;
+	
+	}
 
 }
 //MANIPULACION DE TABLA MENSAJE

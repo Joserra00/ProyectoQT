@@ -19,6 +19,7 @@ Q_OBJECT
 public:
 	ValoracionController();
 	void selectAll();
+	void editarValoracion(Valoracion *);
 	void insertarValoracion();
 	void getValoraciones(QVector<Valoracion*> *);
 	QJsonDocument responseData;

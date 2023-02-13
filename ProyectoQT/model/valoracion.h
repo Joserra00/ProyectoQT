@@ -7,11 +7,12 @@ class Valoracion{
 
 public:
 	Valoracion();
-	Valoracion(int ,QString ,QString ,float);
+	Valoracion(int ,QString ,QString ,float,int);
 	int id;
 	QString name;
 	QString opinion;
 	float puntuacion;
+	int usuario;
 	
 	
 private:
