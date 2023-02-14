@@ -19,6 +19,38 @@ DArticuloEditar::DArticuloEditar(Articulo *articuloPasado,QWidget *parent): QDia
 	
 }
 
+DArticuloEditar::DArticuloEditar(QWidget *parent): QDialog(parent){
+		setupUi(this);
+		artCtrl = new ArticuloController();
+		connect(btnGuardar,SIGNAL(clicked()),
+			this,SLOT(slotInsertarDialogo()));
+		connect(btnCancelar,SIGNAL(clicked()),
+			this,SLOT(slotCancelarDialogo()));
+	
+}
+void DArticuloEditar::slotInsertarDialogo(){
+	
+	int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres guardar?"),
+	QString("¿Seguro?"),
+	QMessageBox::Yes | QMessageBox::No);
+	if (respuesta == QMessageBox::No) qDebug()<<"no se acepto el dialogo";
+	if(respuesta == QMessageBox::Yes){
+		articulo = new Articulo(nameLineEdit->displayText(),
+		categoriaLineEdit->displayText().toInt(),
+		precioLineEdit->displayText().toFloat(),
+		descripcionLineEdit->displayText(),
+		ubicacionLineEdit->displayText(),
+		usuarioLineEdit->displayText().toInt());
+		
+		artCtrl->insertarArticulo(articulo);
+		
+		this->accept();
+		
+	
+	}
+
+
+}
 
 void DArticuloEditar::slotGuardarDialogo(){
 	

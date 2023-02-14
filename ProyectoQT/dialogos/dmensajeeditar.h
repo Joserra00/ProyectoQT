@@ -16,6 +16,7 @@ Q_OBJECT
 
 public:
 	DMensajeEditar(Mensaje * ,QWidget *parent = NULL);
+	DMensajeEditar(QWidget *parent = NULL);
 	Mensaje *mensaje;
 	MensajeController *menCtrl;
 	void closeEvent(QCloseEvent *);
@@ -23,6 +24,7 @@ public:
 public slots:
 	void slotGuardarDialogo();
 	void slotCancelarDialogo();
+	void slotInsertarDialogo();
 
 };
 

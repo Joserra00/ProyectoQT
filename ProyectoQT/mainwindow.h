@@ -30,17 +30,21 @@
 #include "model/categoria.h"
 #include "model/articulo.h"
 #include "model/mensaje.h"
+#include "model/usuario.h"
 #include "controller/categoriacontroller.h"
 #include "controller/articulocontroller.h"
 #include "controller/mensajecontroller.h"
+#include "controller/usuariocontroller.h"
 #include "modelotabla/modelotablacategoria.h"
 #include "modelotabla/modelotablavaloracion.h"
 #include "modelotabla/modelotablaarticulo.h"
 #include "modelotabla/modelotablamensaje.h"
+#include "modelotabla/modelotablausuario.h"
 #include "dialogos/dcategoriaeditar.h"
 #include "dialogos/dvaloracioneditar.h"
 #include "dialogos/dmensajeeditar.h"
 #include "dialogos/darticuloeditar.h"
+#include "dialogos/dusuario.h"
 
 
 class MainWindow : public QMainWindow, public Ui::MainWindow {
@@ -76,6 +80,13 @@ public:
 	QVector <Mensaje*> listaMensaje;
 	DMensajeEditar *dMensajeEditar;
 	
+	QTableView *tablaUsuario;
+	ModeloTablaUsuario *modeloTablaUsuario;
+	UsuarioController *usuCtrl;
+	void crearTablaUsuario();
+	QVector <Usuario*> listaUsuario;
+	DUsuario *dUsuario;
+	
 	
 	void crearMenus();
 	void crearActions();
@@ -85,17 +96,32 @@ public slots:
 	void slotEjemplo();
 	void slotDialogoValoracion(const QModelIndex &);
 	void slotPeticionValoracionTerminada();
+	void slotDialogoValoracionInsertar();
 	void slotDialogoValoracionFinalizado(int );
+	
+	
 	void slotDialogoCategoria(const QModelIndex &);
 	void slotPeticionCategoriaTerminada();
 	void slotDialogoCategoriaInsertar();
 	void slotDialogoCategoriaFinalizado(int );
+	
+	
 	void slotDialogoArticulo(const QModelIndex &);
 	void slotPeticionArticuloTerminada();
+	void slotDialogoArticuloInsertar();
 	void slotDialogoArticuloFinalizado(int );
+	
+	
 	void slotDialogoMensaje(const QModelIndex &);
 	void slotPeticionMensajeTerminada();
+	void slotDialogoMensajeInsertar();
 	void slotDialogoMensajeFinalizado(int );
+	
+	
+	void slotDialogoUsuario(const QModelIndex &);
+	void slotPeticionUsuarioTerminada();
+	void slotDialogoUsuarioInsertar();
+	void slotDialogoUsuarioFinalizado(int );
 
 };
 

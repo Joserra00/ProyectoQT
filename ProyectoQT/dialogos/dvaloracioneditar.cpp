@@ -16,7 +16,36 @@ DValoracionEditar::DValoracionEditar(Valoracion *valoracionPasada,QWidget *paren
 		valCtrl = new ValoracionController();
 
 }
+DValoracionEditar::DValoracionEditar(QWidget *parent): QDialog(parent){
+		setupUi(this);
+	
+	connect(btnGuardar,SIGNAL(clicked()),
+			this,SLOT(slotInsertarDialogo()));
+	connect(btnCancelar,SIGNAL(clicked()),
+			this,SLOT(slotCancelarDialogo()));
+	valCtrl = new ValoracionController();
 
+}
+void DValoracionEditar::slotInsertarDialogo(){
+int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres guardar?"),
+	QString("¿Seguro?"),
+	QMessageBox::Yes | QMessageBox::No);
+	if (respuesta == QMessageBox::No) qDebug()<<"no se acepto el dialogo";
+	if(respuesta == QMessageBox::Yes){
+		valoracion = new Valoracion(nameLineEdit->displayText(),
+		opinionLineEdit->displayText(),
+		puntuacionLineEdit->displayText().toFloat(),
+		usuarioLineEdit->displayText().toInt());
+		valCtrl->insertarValoracion(valoracion);
+		this->accept();
+		
+	
+	}
+
+
+
+
+}
 
 void DValoracionEditar::slotGuardarDialogo(){
 int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres guardar?"),

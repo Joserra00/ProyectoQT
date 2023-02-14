@@ -17,12 +17,14 @@ Q_OBJECT
 
 public:
 	DValoracionEditar(Valoracion *,QWidget *parent = NULL);
+	DValoracionEditar(QWidget *parent = NULL);
 	Valoracion *valoracion;
 	ValoracionController *valCtrl;
 	void closeEvent(QCloseEvent *);
 public slots:
 	void slotGuardarDialogo();
 	void slotCancelarDialogo();
+	void slotInsertarDialogo();
 
 };
 

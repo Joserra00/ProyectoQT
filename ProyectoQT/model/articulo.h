@@ -8,6 +8,7 @@ class Articulo{
 public:
 	Articulo();
 	Articulo(int ,QString ,int,float,QString,QString,int);
+	Articulo(QString ,int,float,QString,QString,int);
 	int id;
 	QString name;
 	int categoria;

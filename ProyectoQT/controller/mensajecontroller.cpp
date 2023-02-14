@@ -3,7 +3,7 @@ MensajeController::MensajeController( )
 {
 
 }
-void MensajeController::insertarMensaje(){
+void MensajeController::insertarMensaje(Mensaje *mensaje){
 	QJsonObject jsonObject;
 	jsonObject.insert("jsonrpc", "2.0");
         jsonObject.insert("method", "call");
@@ -20,12 +20,11 @@ void MensajeController::insertarMensaje(){
         
         QJsonObject fields;
      
-        fields.insert("name","");
-        fields.insert("categoria","");
-        fields.insert("precio","");
-        fields.insert("descripcion","");
-        fields.insert("ubicacion","");
-        fields.insert("usuario","");
+        fields.insert("name",mensaje->name);
+        fields.insert("usuario",mensaje->usuario);
+        fields.insert("usuario_receptor",mensaje->usuario_receptor);
+        fields.insert("contenido",mensaje->contenido);
+      
         
         args.append(fields);
         params.insert("args", args);

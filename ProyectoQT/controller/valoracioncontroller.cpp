@@ -4,7 +4,7 @@ ValoracionController::ValoracionController( )
 
 
 }
-void ValoracionController::insertarValoracion(){
+void ValoracionController::insertarValoracion(Valoracion *valoracion){
 	QJsonObject jsonObject;
 	jsonObject.insert("jsonrpc", "2.0");
         jsonObject.insert("method", "call");
@@ -21,10 +21,10 @@ void ValoracionController::insertarValoracion(){
         
         QJsonObject fields;
      
-        fields.insert("name","prueba 2");
-        fields.insert("opinion","prueba 2");
-        fields.insert("puntuacion",7);
-        fields.insert("usuario",26);
+        fields.insert("name",valoracion->name);
+        fields.insert("opinion",valoracion->opinion);
+        fields.insert("puntuacion",valoracion->puntuacion);
+        fields.insert("usuario",valoracion->usuario);
         
         args.append(fields);
         params.insert("args", args);

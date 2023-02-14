@@ -20,7 +20,7 @@ public:
 	ValoracionController();
 	void selectAll();
 	void editarValoracion(Valoracion *);
-	void insertarValoracion();
+	void insertarValoracion(Valoracion *);
 	void getValoraciones(QVector<Valoracion*> *);
 	QJsonDocument responseData;
 	

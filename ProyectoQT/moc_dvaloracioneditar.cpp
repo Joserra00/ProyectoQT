@@ -1,19 +1,18 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'dvaloracioneditar.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.3)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.8)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include <memory>
 #include "dialogos/dvaloracioneditar.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'dvaloracioneditar.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.15.3. It"
+#error "This file was generated using the moc from 5.12.8. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -22,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_DValoracionEditar_t {
-    QByteArrayData data[4];
-    char stringdata0[58];
+    QByteArrayData data[5];
+    char stringdata0[78];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,11 +34,12 @@ static const qt_meta_stringdata_DValoracionEditar_t qt_meta_stringdata_DValoraci
 QT_MOC_LITERAL(0, 0, 17), // "DValoracionEditar"
 QT_MOC_LITERAL(1, 18, 18), // "slotGuardarDialogo"
 QT_MOC_LITERAL(2, 37, 0), // ""
-QT_MOC_LITERAL(3, 38, 19) // "slotCancelarDialogo"
+QT_MOC_LITERAL(3, 38, 19), // "slotCancelarDialogo"
+QT_MOC_LITERAL(4, 58, 19) // "slotInsertarDialogo"
 
     },
     "DValoracionEditar\0slotGuardarDialogo\0"
-    "\0slotCancelarDialogo"
+    "\0slotCancelarDialogo\0slotInsertarDialogo"
 };
 #undef QT_MOC_LITERAL
 
@@ -49,7 +49,7 @@ static const uint qt_meta_data_DValoracionEditar[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,10 +57,12 @@ static const uint qt_meta_data_DValoracionEditar[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   24,    2, 0x0a /* Public */,
-       3,    0,   25,    2, 0x0a /* Public */,
+       1,    0,   29,    2, 0x0a /* Public */,
+       3,    0,   30,    2, 0x0a /* Public */,
+       4,    0,   31,    2, 0x0a /* Public */,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -71,18 +73,19 @@ void DValoracionEditar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         auto *_t = static_cast<DValoracionEditar *>(_o);
-        (void)_t;
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->slotGuardarDialogo(); break;
         case 1: _t->slotCancelarDialogo(); break;
+        case 2: _t->slotInsertarDialogo(); break;
         default: ;
         }
     }
-    (void)_a;
+    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject DValoracionEditar::staticMetaObject = { {
-    QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
+    &QDialog::staticMetaObject,
     qt_meta_stringdata_DValoracionEditar.data,
     qt_meta_data_DValoracionEditar,
     qt_static_metacall,
@@ -112,13 +115,13 @@ int DValoracionEditar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

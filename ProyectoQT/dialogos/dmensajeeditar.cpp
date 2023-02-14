@@ -17,7 +17,39 @@ DMensajeEditar::DMensajeEditar(Mensaje *mensajePasado,QWidget *parent): QDialog(
 
 	
 }
+DMensajeEditar::DMensajeEditar(QWidget *parent): QDialog(parent){
+		setupUi(this);
+		
+		connect(btnGuardar,SIGNAL(clicked()),
+			this,SLOT(slotInsertarDialogo()));
+		connect(btnCancelar,SIGNAL(clicked()),
+			this,SLOT(slotCancelarDialogo()));
+		menCtrl = new MensajeController();
 
+	
+}
+
+void DMensajeEditar::slotInsertarDialogo(){
+	
+	int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres guardar?"),
+	QString("¿Seguro?"),
+	QMessageBox::Yes | QMessageBox::No);
+	if (respuesta == QMessageBox::No) qDebug()<<"no se acepto el dialogo";
+	if(respuesta == QMessageBox::Yes){
+		mensaje = new Mensaje(nameLineEdit->displayText(),
+		usuarioLineEdit->displayText().toInt(),
+		usuarioreceptorLineEdit->displayText().toInt(),
+		contenidoLineEdit->displayText());
+	
+		menCtrl->insertarMensaje(mensaje);
+		
+		this->accept();
+		
+	
+	}
+
+
+}
 
 void DMensajeEditar::slotGuardarDialogo(){
 	

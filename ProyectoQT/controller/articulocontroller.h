@@ -19,7 +19,7 @@ Q_OBJECT
 public:
 	ArticuloController();
 	void selectAll();
-	void insertarArticulo();
+	void insertarArticulo(Articulo *);
 	void getArticulos(QVector<Articulo*> *);
 	void editarArticulo(Articulo *);
 	QJsonDocument responseData;

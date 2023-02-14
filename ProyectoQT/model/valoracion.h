@@ -8,6 +8,7 @@ class Valoracion{
 public:
 	Valoracion();
 	Valoracion(int ,QString ,QString ,float,int);
+	Valoracion(QString ,QString ,float,int);
 	int id;
 	QString name;
 	QString opinion;

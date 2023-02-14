@@ -8,6 +8,7 @@ class Mensaje{
 public:
 	Mensaje();
 	Mensaje(int ,QString ,int,int,QString);
+	Mensaje(QString ,int,int,QString);
 	int id;
 	QString name;
 	int usuario;

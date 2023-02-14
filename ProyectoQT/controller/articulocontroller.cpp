@@ -3,7 +3,7 @@ ArticuloController::ArticuloController( )
 {
 
 }
-void ArticuloController::insertarArticulo(){
+void ArticuloController::insertarArticulo(Articulo *articulo){
 	QJsonObject jsonObject;
 	jsonObject.insert("jsonrpc", "2.0");
         jsonObject.insert("method", "call");
@@ -20,12 +20,12 @@ void ArticuloController::insertarArticulo(){
         
         QJsonObject fields;
      
-        fields.insert("name","");
-        fields.insert("categoria","");
-        fields.insert("precio","");
-        fields.insert("descripcion","");
-        fields.insert("ubicacion","");
-        fields.insert("usuario","");
+        fields.insert("name",articulo->name);
+        fields.insert("categoria",articulo->categoria);
+        fields.insert("precio",articulo->precio);
+        fields.insert("descripcion",articulo->descripcion);
+        fields.insert("ubicacion",articulo->ubicacion);
+        fields.insert("usuario",articulo->usuario);
         
         args.append(fields);
         params.insert("args", args);

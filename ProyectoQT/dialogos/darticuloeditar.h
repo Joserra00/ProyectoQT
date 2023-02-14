@@ -17,6 +17,7 @@ Q_OBJECT
 
 public:
 	DArticuloEditar(Articulo *,QWidget *parent = NULL);
+	DArticuloEditar(QWidget *parent = NULL);
 	Articulo *articulo;
 	ArticuloController *artCtrl;
 	void closeEvent(QCloseEvent *);
@@ -24,6 +25,7 @@ public:
 public slots:
 	void slotGuardarDialogo();
 	void slotCancelarDialogo();
+	void slotInsertarDialogo();
 
 };
 

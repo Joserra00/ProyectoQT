@@ -19,7 +19,7 @@ Q_OBJECT
 public:
 	MensajeController();
 	void selectAll();
-	void insertarMensaje();
+	void insertarMensaje(Mensaje *);
 	void getMensajes(QVector<Mensaje*> *);
 	void editarMensaje(Mensaje *);
 	QJsonDocument responseData;
