@@ -19,7 +19,7 @@ Q_OBJECT
 public:
 	CategoriaController();
 	void selectAll();
-	void insertarCategoria();
+	void insertarCategoria(Categoria *);
 	void getCategorias(QVector<Categoria*> *);
 	QJsonDocument responseData;
 	void editarCategoria(Categoria *categoria);

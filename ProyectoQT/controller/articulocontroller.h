@@ -21,6 +21,7 @@ public:
 	void selectAll();
 	void insertarArticulo();
 	void getArticulos(QVector<Articulo*> *);
+	void editarArticulo(Articulo *);
 	QJsonDocument responseData;
 	
 public slots:

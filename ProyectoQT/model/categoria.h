@@ -8,6 +8,7 @@ class Categoria{
 public:
 	Categoria();
 	Categoria(int ,QString ,QString);
+	Categoria(QString ,QString);
 	int id;
 	QString name;
 	QString descripcion_categoria;

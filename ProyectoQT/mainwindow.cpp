@@ -4,9 +4,15 @@
 
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent){
 		setupUi(this);
+crearActions();
+crearMenus();		
 		
-	dCategoria = NULL;
-	dValoracion = NULL;
+		
+//instanciamos los dialogos a null
+	dCategoriaEditar = NULL;
+	dValoracionEditar = NULL;
+	dMensajeEditar = NULL;
+	dArticuloEditar = NULL;
 //instanciamos tablas
 	tabSimarropop->clear();
 	tablaValoracion = new QTableView();
@@ -55,19 +61,19 @@ void MainWindow::slotPeticionValoracionTerminada(){
 void MainWindow::slotDialogoValoracion(const QModelIndex &index){
 	int i =  index.row();
 	qDebug()<<listaValoracion.at(i)->name;
-	if(dValoracion==NULL){
-		dValoracion = new DValoracion(listaValoracion.at(i));
+	if(dValoracionEditar==NULL){
+		dValoracionEditar = new DValoracionEditar(listaValoracion.at(i));
 		}
-		dValoracion->show();
-		connect(dValoracion,SIGNAL(finished(int)),
+		dValoracionEditar->show();
+		connect(dValoracionEditar,SIGNAL(finished(int)),
 		this,SLOT(slotDialogoValoracionFinalizado(int)));
 
 
 }
 void MainWindow::slotDialogoValoracionFinalizado(int result) {
 	if(result==QDialog::Accepted || result==QDialog::Rejected){
-		dValoracion=NULL;
-		delete dValoracion;
+		dValoracionEditar=NULL;
+		delete dValoracionEditar;
 	
 	}
 
@@ -93,8 +99,21 @@ void MainWindow::slotPeticionArticuloTerminada(){
 void MainWindow::slotDialogoArticulo(const QModelIndex &index){
 	int i =  index.row();
 	qDebug()<<listaArticulo.at(i)->name;
+	if(dArticuloEditar==NULL){
+		dArticuloEditar = new DArticuloEditar(listaArticulo.at(i));
+		}
+		dArticuloEditar->show();
+	connect(dArticuloEditar,SIGNAL(finished(int)),
+		this,SLOT(slotDialogoCategoriaFinalizado(int)));
 
 
+}
+void MainWindow::slotDialogoArticuloFinalizado(int result) {
+	if(result==QDialog::Accepted || result==QDialog::Rejected){
+		dArticuloEditar=NULL;
+		delete dArticuloEditar;
+	
+	}
 }
 //MANIPULACION DE TABLA CATEGORIA
 void MainWindow::crearTablaCategoria(){
@@ -115,11 +134,11 @@ void MainWindow::slotPeticionCategoriaTerminada(){
 void MainWindow::slotDialogoCategoria(const QModelIndex &index){
 	int i =  index.row();
 	qDebug()<<listaCategoria.at(i)->name;
-	if(dCategoria==NULL){
-		dCategoria = new DCategoria(listaCategoria.at(i));
+	if(dCategoriaEditar==NULL){
+		dCategoriaEditar = new DCategoriaEditar(listaCategoria.at(i));
 		}
-		dCategoria->show();
-	connect(dCategoria,SIGNAL(finished(int)),
+		dCategoriaEditar->show();
+	connect(dCategoriaEditar,SIGNAL(finished(int)),
 		this,SLOT(slotDialogoCategoriaFinalizado(int)));
 
 
@@ -127,10 +146,20 @@ void MainWindow::slotDialogoCategoria(const QModelIndex &index){
 }
 void MainWindow::slotDialogoCategoriaFinalizado(int result){
 	if(result==QDialog::Accepted || result==QDialog::Rejected){
-		dCategoria=NULL;
-		delete dCategoria;
+		dCategoriaEditar=NULL;
+		delete dCategoriaEditar;
 	
 	}
+
+}
+void MainWindow::slotDialogoCategoriaInsertar(){
+if(dCategoriaEditar==NULL){
+		dCategoriaEditar = new DCategoriaEditar();
+		}
+		dCategoriaEditar->show();
+	
+	connect(dCategoriaEditar,SIGNAL(finished(int)),
+		this,SLOT(slotDialogoCategoriaFinalizado(int)));
 
 }
 //MANIPULACION DE TABLA MENSAJE
@@ -152,7 +181,43 @@ void MainWindow::slotPeticionMensajeTerminada(){
 void MainWindow::slotDialogoMensaje(const QModelIndex &index){
 	int i =  index.row();
 	qDebug()<<listaMensaje.at(i)->name;
+	if(dMensajeEditar==NULL){
+		dMensajeEditar = new DMensajeEditar(listaMensaje.at(i));
+		}
+		dMensajeEditar->show();
+	
+	connect(dMensajeEditar,SIGNAL(finished(int)),
+		this,SLOT(slotDialogoMensajeFinalizado(int)));
 
+
+}
+
+void MainWindow::slotDialogoMensajeFinalizado(int result){
+	if(result==QDialog::Accepted || result==QDialog::Rejected){
+		dMensajeEditar=NULL;
+		delete dMensajeEditar;
+	
+	}
+}
+void MainWindow::crearActions(){
+	accionInsertUsuario = new QAction("Insertar Usuario");
+	accionInsertArticulo = new QAction("Insertar Articulo");
+	accionInsertValoracion = new QAction("Insertar Valoracion");
+	accionInsertCategoria = new QAction("Insertar Categoria");
+	connect(accionInsertCategoria,SIGNAL(triggered()),
+		this,SLOT(slotDialogoCategoriaInsertar()));
+	accionInsertMensaje = new QAction("Insertar Mensaje");
+	
+
+}
+
+void MainWindow::crearMenus(){
+	QMenu * menuInsertar = menuBar()->addMenu("Insertar Datos");
+	menuInsertar->addAction(accionInsertUsuario);
+	menuInsertar->addAction(accionInsertArticulo);
+	menuInsertar->addAction(accionInsertValoracion);
+	menuInsertar->addAction(accionInsertCategoria);
+	menuInsertar->addAction(accionInsertMensaje);
 
 }
 

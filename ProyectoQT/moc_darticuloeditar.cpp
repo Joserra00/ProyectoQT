@@ -1,18 +1,19 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'dvaloracion.h'
+** Meta object code from reading C++ file 'darticuloeditar.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.8)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "dialogos/dvaloracion.h"
+#include <memory>
+#include "dialogos/darticuloeditar.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'dvaloracion.h' doesn't include <QObject>."
+#error "The header file 'darticuloeditar.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.8. It"
+#error "This file was generated using the moc from 5.15.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,29 +21,29 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_DValoracion_t {
+struct qt_meta_stringdata_DArticuloEditar_t {
     QByteArrayData data[4];
-    char stringdata0[52];
+    char stringdata0[56];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_DValoracion_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_DArticuloEditar_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_DValoracion_t qt_meta_stringdata_DValoracion = {
+static const qt_meta_stringdata_DArticuloEditar_t qt_meta_stringdata_DArticuloEditar = {
     {
-QT_MOC_LITERAL(0, 0, 11), // "DValoracion"
-QT_MOC_LITERAL(1, 12, 18), // "slotGuardarDialogo"
-QT_MOC_LITERAL(2, 31, 0), // ""
-QT_MOC_LITERAL(3, 32, 19) // "slotCancelarDialogo"
+QT_MOC_LITERAL(0, 0, 15), // "DArticuloEditar"
+QT_MOC_LITERAL(1, 16, 18), // "slotGuardarDialogo"
+QT_MOC_LITERAL(2, 35, 0), // ""
+QT_MOC_LITERAL(3, 36, 19) // "slotCancelarDialogo"
 
     },
-    "DValoracion\0slotGuardarDialogo\0\0"
+    "DArticuloEditar\0slotGuardarDialogo\0\0"
     "slotCancelarDialogo"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_DValoracion[] = {
+static const uint qt_meta_data_DArticuloEditar[] = {
 
  // content:
        8,       // revision
@@ -66,46 +67,46 @@ static const uint qt_meta_data_DValoracion[] = {
        0        // eod
 };
 
-void DValoracion::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void DArticuloEditar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<DValoracion *>(_o);
-        Q_UNUSED(_t)
+        auto *_t = static_cast<DArticuloEditar *>(_o);
+        (void)_t;
         switch (_id) {
         case 0: _t->slotGuardarDialogo(); break;
         case 1: _t->slotCancelarDialogo(); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
+    (void)_a;
 }
 
-QT_INIT_METAOBJECT const QMetaObject DValoracion::staticMetaObject = { {
-    &QDialog::staticMetaObject,
-    qt_meta_stringdata_DValoracion.data,
-    qt_meta_data_DValoracion,
+QT_INIT_METAOBJECT const QMetaObject DArticuloEditar::staticMetaObject = { {
+    QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
+    qt_meta_stringdata_DArticuloEditar.data,
+    qt_meta_data_DArticuloEditar,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *DValoracion::metaObject() const
+const QMetaObject *DArticuloEditar::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *DValoracion::qt_metacast(const char *_clname)
+void *DArticuloEditar::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_DValoracion.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_DArticuloEditar.stringdata0))
         return static_cast<void*>(this);
-    if (!strcmp(_clname, "Ui::DValoracion"))
-        return static_cast< Ui::DValoracion*>(this);
+    if (!strcmp(_clname, "Ui::DArticuloEditar"))
+        return static_cast< Ui::DArticuloEditar*>(this);
     return QDialog::qt_metacast(_clname);
 }
 
-int DValoracion::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int DArticuloEditar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)

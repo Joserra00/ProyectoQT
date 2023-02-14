@@ -1,7 +1,7 @@
 
 #ifndef DCATEGORIA_H
 #define DCATEGORIA_H
-#include "ui_dcategoria.h"
+#include "ui_dcategoriaeditar.h"
 
 #include <QVector>
 #include <QDialog>
@@ -10,17 +10,19 @@
 #include "controller/categoriacontroller.h"
 #include <QMessageBox>
 #include <QCloseEvent>
-class DCategoria : public QDialog, public Ui::DCategoria {
+class DCategoriaEditar : public QDialog, public Ui::DCategoriaEditar {
 Q_OBJECT
 
 public:
-	DCategoria(Categoria *,QWidget *parent = NULL);
+	DCategoriaEditar(Categoria *,QWidget *parent = NULL);
+	DCategoriaEditar(QWidget *parent = NULL);
 	Categoria *categoria;
 	CategoriaController *catCtrl;
 	void closeEvent(QCloseEvent *);
 public slots:
 	void slotGuardarDialogo();
 	void slotCancelarDialogo();
+	void slotInsertarDialogo();
 
 };
 

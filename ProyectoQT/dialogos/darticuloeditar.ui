@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DValoracion</class>
- <widget class="QDialog" name="DValoracion">
+ <class>DArticuloEditar</class>
+ <widget class="QDialog" name="DArticuloEditar">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>638</width>
-    <height>387</height>
+    <width>682</width>
+    <height>444</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>50</y>
+     <x>160</x>
+     <y>30</y>
      <width>67</width>
      <height>17</height>
     </rect>
@@ -29,34 +29,60 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>100</y>
+     <x>160</x>
+     <y>80</y>
      <width>67</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>Opinion</string>
+    <string>Categoria</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>150</y>
-     <width>81</width>
+     <x>160</x>
+     <y>130</y>
+     <width>67</width>
      <height>17</height>
     </rect>
    </property>
    <property name="text">
-    <string>Puntuacion</string>
+    <string>Precio</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>200</y>
+     <x>160</x>
+     <y>180</y>
+     <width>81</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Descripcion</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>230</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ubicacion</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>280</y>
      <width>67</width>
      <height>17</height>
     </rect>
@@ -68,28 +94,38 @@
   <widget class="QLineEdit" name="nameLineEdit">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>40</y>
+     <x>280</x>
+     <y>20</y>
      <width>191</width>
      <height>31</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="opinionLineEdit">
+  <widget class="QLineEdit" name="categoriaLineEdit">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>90</y>
+     <x>280</x>
+     <y>70</y>
      <width>191</width>
      <height>31</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="puntuacionLineEdit">
+  <widget class="QLineEdit" name="precioLineEdit">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>140</y>
+     <x>280</x>
+     <y>120</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="descripcionLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>170</y>
      <width>191</width>
      <height>31</height>
     </rect>
@@ -98,8 +134,18 @@
   <widget class="QLineEdit" name="usuarioLineEdit">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>190</y>
+     <x>280</x>
+     <y>270</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="ubicacionLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>220</y>
      <width>191</width>
      <height>31</height>
     </rect>
@@ -108,8 +154,8 @@
   <widget class="QPushButton" name="btnGuardar">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>300</y>
+     <x>370</x>
+     <y>380</y>
      <width>89</width>
      <height>25</height>
     </rect>
@@ -121,8 +167,8 @@
   <widget class="QPushButton" name="btnCancelar">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>300</y>
+     <x>510</x>
+     <y>380</y>
      <width>89</width>
      <height>25</height>
     </rect>

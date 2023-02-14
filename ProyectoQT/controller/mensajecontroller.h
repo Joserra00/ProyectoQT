@@ -21,6 +21,7 @@ public:
 	void selectAll();
 	void insertarMensaje();
 	void getMensajes(QVector<Mensaje*> *);
+	void editarMensaje(Mensaje *);
 	QJsonDocument responseData;
 	
 public slots:

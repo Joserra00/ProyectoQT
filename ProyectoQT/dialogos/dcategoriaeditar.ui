@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DCategoria</class>
- <widget class="QDialog" name="DCategoria">
+ <class>DCategoriaEditar</class>
+ <widget class="QDialog" name="DCategoriaEditar">
   <property name="geometry">
    <rect>
     <x>0</x>

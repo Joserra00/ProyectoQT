@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DMensaje</class>
- <widget class="QDialog" name="DMensaje">
+ <class>DMensajeEditar</class>
+ <widget class="QDialog" name="DMensajeEditar">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -65,7 +65,7 @@
     <string>Contenido</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="nameLineEdit_2">
+  <widget class="QLineEdit" name="nameLineEdit">
    <property name="geometry">
     <rect>
      <x>270</x>

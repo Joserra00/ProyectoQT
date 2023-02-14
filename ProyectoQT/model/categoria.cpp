@@ -13,4 +13,11 @@ Categoria::Categoria(int idPasado,QString namePasado ,QString descripcion_catego
 
 
 }
+Categoria::Categoria(QString namePasado,QString descripcion_categoriaPasado){
+	name = namePasado;
+	descripcion_categoria = descripcion_categoriaPasado;
+
+
+
+}
 

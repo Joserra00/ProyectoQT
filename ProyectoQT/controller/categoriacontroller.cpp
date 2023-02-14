@@ -4,7 +4,7 @@ CategoriaController::CategoriaController( )
 
 
 }
-void CategoriaController::insertarCategoria(){
+void CategoriaController::insertarCategoria(Categoria *categoria){
 	QJsonObject jsonObject;
 	jsonObject.insert("jsonrpc", "2.0");
         jsonObject.insert("method", "call");
@@ -21,8 +21,8 @@ void CategoriaController::insertarCategoria(){
         
         QJsonObject fields;
      
-        fields.insert("name","prueba 2");
-        fields.insert("descripcion_categoria","prueba 2");
+        fields.insert("name",categoria->name);
+        fields.insert("descripcion_categoria",categoria->descripcion_categoria);
   
         
         args.append(fields);

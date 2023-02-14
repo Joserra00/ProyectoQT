@@ -1,8 +1,8 @@
 
-#include "dvaloracion.h"
+#include "dvaloracioneditar.h"
 #include <QDebug>
 
-DValoracion::DValoracion(Valoracion *valoracionPasada,QWidget *parent): QDialog(parent){
+DValoracionEditar::DValoracionEditar(Valoracion *valoracionPasada,QWidget *parent): QDialog(parent){
 		setupUi(this);
 	valoracion = valoracionPasada;
 	nameLineEdit->insert(valoracion->name);
@@ -18,7 +18,7 @@ DValoracion::DValoracion(Valoracion *valoracionPasada,QWidget *parent): QDialog(
 }
 
 
-void DValoracion::slotGuardarDialogo(){
+void DValoracionEditar::slotGuardarDialogo(){
 int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres guardar?"),
 	QString("¿Seguro?"),
 	QMessageBox::Yes | QMessageBox::No);
@@ -38,7 +38,7 @@ int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres guard
 
 
 }
-void DValoracion::slotCancelarDialogo(){
+void DValoracionEditar::slotCancelarDialogo(){
 	this->reject();
 
 
@@ -46,7 +46,7 @@ void DValoracion::slotCancelarDialogo(){
 }
 
 
-void DValoracion::closeEvent(QCloseEvent *event)
+void DValoracionEditar::closeEvent(QCloseEvent *event)
 {
 
        this->reject();

@@ -12,6 +12,8 @@
 #include <QDebug>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlDatabase>
+#include <QMenuBar>
+#include <QAction>
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -35,8 +37,10 @@
 #include "modelotabla/modelotablavaloracion.h"
 #include "modelotabla/modelotablaarticulo.h"
 #include "modelotabla/modelotablamensaje.h"
-#include "dialogos/dcategoria.h"
-#include "dialogos/dvaloracion.h"
+#include "dialogos/dcategoriaeditar.h"
+#include "dialogos/dvaloracioneditar.h"
+#include "dialogos/dmensajeeditar.h"
+#include "dialogos/darticuloeditar.h"
 
 
 class MainWindow : public QMainWindow, public Ui::MainWindow {
@@ -49,26 +53,33 @@ public:
 	ValoracionController *valCtrl;
 	void crearTablaValoracion();
 	QVector <Valoracion*> listaValoracion;
-	DValoracion *dValoracion;
+	DValoracionEditar *dValoracionEditar;
 	
 	QTableView *tablaCategoria;
 	ModeloTablaCategoria *modeloTablaCategoria;
 	CategoriaController *catCtrl;
 	void crearTablaCategoria();
 	QVector <Categoria*> listaCategoria;
-	DCategoria *dCategoria;
+	DCategoriaEditar *dCategoriaEditar;
 	
 	QTableView *tablaArticulo;
 	ModeloTablaArticulo *modeloTablaArticulo;
 	ArticuloController *artCtrl;
 	void crearTablaArticulo();
 	QVector <Articulo*> listaArticulo;
+	DArticuloEditar *dArticuloEditar;
 	
 	QTableView *tablaMensaje;
 	ModeloTablaMensaje *modeloTablaMensaje;
 	MensajeController *menCtrl;
 	void crearTablaMensaje();
 	QVector <Mensaje*> listaMensaje;
+	DMensajeEditar *dMensajeEditar;
+	
+	
+	void crearMenus();
+	void crearActions();
+	QAction *accionInsertUsuario,*accionInsertArticulo,*accionInsertValoracion,*accionInsertCategoria,*accionInsertMensaje;
 
 public slots:
 	void slotEjemplo();
@@ -77,11 +88,14 @@ public slots:
 	void slotDialogoValoracionFinalizado(int );
 	void slotDialogoCategoria(const QModelIndex &);
 	void slotPeticionCategoriaTerminada();
+	void slotDialogoCategoriaInsertar();
 	void slotDialogoCategoriaFinalizado(int );
 	void slotDialogoArticulo(const QModelIndex &);
 	void slotPeticionArticuloTerminada();
+	void slotDialogoArticuloFinalizado(int );
 	void slotDialogoMensaje(const QModelIndex &);
 	void slotPeticionMensajeTerminada();
+	void slotDialogoMensajeFinalizado(int );
 
 };
 
