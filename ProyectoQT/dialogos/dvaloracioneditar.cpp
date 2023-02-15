@@ -4,6 +4,7 @@
 
 DValoracionEditar::DValoracionEditar(Valoracion *valoracionPasada,QWidget *parent): QDialog(parent){
 		setupUi(this);
+	btnCancelar->setText("Borrar");
 	valoracion = valoracionPasada;
 	nameLineEdit->insert(valoracion->name);
 	opinionLineEdit->insert(valoracion->opinion);
@@ -64,6 +65,21 @@ int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres guard
 	}
 
 
+
+
+}
+void DValoracionEditar::slotBorrarDialogo(){
+	int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres borrar?"),
+	QString("¿Seguro?"),
+	QMessageBox::Yes | QMessageBox::No);
+	if (respuesta == QMessageBox::No) qDebug()<<"no se acepto el dialogo";
+	if(respuesta == QMessageBox::Yes){
+	
+		valCtrl->eliminarValoracion(valoracion->id);
+		this->accept();
+		
+	
+	}
 
 
 }

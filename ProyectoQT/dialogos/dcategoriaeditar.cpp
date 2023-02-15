@@ -4,6 +4,7 @@
 
 DCategoriaEditar::DCategoriaEditar(Categoria *categoriaPasada,QWidget *parent): QDialog(parent){
 		setupUi(this);
+		btnCancelar->setText("Borrar");
 		categoria = categoriaPasada;
 		nameEditLine->insert(categoria->name);
 		descEditLine->insert(categoria->descripcion_categoria);
@@ -11,7 +12,7 @@ DCategoriaEditar::DCategoriaEditar(Categoria *categoriaPasada,QWidget *parent): 
 		connect(btnGuardar,SIGNAL(clicked()),
 			this,SLOT(slotGuardarDialogo()));
 			connect(btnCancelar,SIGNAL(clicked()),
-			this,SLOT(slotCancelarDialogo()));
+			this,SLOT(slotBorrarDialogo()));
 		catCtrl = new CategoriaController();
 }
 DCategoriaEditar::DCategoriaEditar(QWidget *parent): QDialog(parent){
@@ -32,6 +33,21 @@ void DCategoriaEditar::slotInsertarDialogo(){
 		categoria = new Categoria(nameEditLine->displayText(),
 		descEditLine->displayText());
 		catCtrl->insertarCategoria(categoria);
+		this->accept();
+		
+	
+	}
+
+
+}
+void DCategoriaEditar::slotBorrarDialogo(){
+	int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres borrar?"),
+	QString("¿Seguro?"),
+	QMessageBox::Yes | QMessageBox::No);
+	if (respuesta == QMessageBox::No) qDebug()<<"no se acepto el dialogo";
+	if(respuesta == QMessageBox::Yes){
+	
+		catCtrl->eliminarCategoria(categoria->id);
 		this->accept();
 		
 	

@@ -4,6 +4,7 @@
 
 DMensajeEditar::DMensajeEditar(Mensaje *mensajePasado,QWidget *parent): QDialog(parent){
 		setupUi(this);
+		btnCancelar->setText("Borrar");
 		mensaje = mensajePasado;
 		nameLineEdit->insert(mensaje->name);
 		usuarioLineEdit->insert(QString::number(mensaje->usuario));
@@ -64,6 +65,21 @@ void DMensajeEditar::slotGuardarDialogo(){
 		mensaje->usuario_receptor=(usuarioreceptorLineEdit->displayText().toInt());
 		menCtrl->editarMensaje(mensaje);
 		
+		this->accept();
+		
+	
+	}
+
+
+}
+void DMensajeEditar::slotBorrarDialogo(){
+	int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres borrar?"),
+	QString("¿Seguro?"),
+	QMessageBox::Yes | QMessageBox::No);
+	if (respuesta == QMessageBox::No) qDebug()<<"no se acepto el dialogo";
+	if(respuesta == QMessageBox::Yes){
+	
+		menCtrl->eliminarMensaje(mensaje->id);
 		this->accept();
 		
 	

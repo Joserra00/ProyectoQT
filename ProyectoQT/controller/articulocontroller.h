@@ -22,6 +22,7 @@ public:
 	void insertarArticulo(Articulo *);
 	void getArticulos(QVector<Articulo*> *);
 	void editarArticulo(Articulo *);
+	void eliminarArticulo(int);
 	QJsonDocument responseData;
 	
 public slots:

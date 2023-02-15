@@ -4,6 +4,7 @@
 
 DUsuario::DUsuario(Usuario *usuarioPasado,QWidget *parent): QDialog(parent){
 		setupUi(this);
+		btnCancelar->setText("Borrar");
 		usuCtrl = new UsuarioController();
 		usuario = usuarioPasado;
 		nameLineEdit->insert(usuario->name);
@@ -15,7 +16,7 @@ DUsuario::DUsuario(Usuario *usuarioPasado,QWidget *parent): QDialog(parent){
 		connect(btnGuardar,SIGNAL(clicked()),
 			this,SLOT(slotGuardarDialogo()));
 		connect(btnCancelar,SIGNAL(clicked()),
-			this,SLOT(slotCancelarDialogo()));
+			this,SLOT(slotBorrarDialogo()));
 	
 }
 
@@ -66,6 +67,23 @@ void DUsuario::slotGuardarDialogo(){
 		usuario->fecha_nacimiento=fechanacLineEdit->displayText();
 		usuario->contrasenya=contrasenyaLineEdit->displayText();
 		usuCtrl->editarUsuario(usuario);
+		
+		this->accept();
+		
+	
+	}
+
+
+}
+void DUsuario::slotBorrarDialogo(){
+	
+	int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres borrar?"),
+	QString("¿Seguro?"),
+	QMessageBox::Yes | QMessageBox::No);
+	if (respuesta == QMessageBox::No) qDebug()<<"no se acepto el dialogo";
+	if(respuesta == QMessageBox::Yes){
+	
+		usuCtrl->eliminarUsuario(usuario->id);
 		
 		this->accept();
 		

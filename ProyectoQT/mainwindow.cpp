@@ -121,16 +121,32 @@ void MainWindow::slotDialogoArticulo(const QModelIndex &index){
 		}
 		dArticuloEditar->show();
 	connect(dArticuloEditar,SIGNAL(finished(int)),
-		this,SLOT(slotDialogoCategoriaFinalizado(int)));
+		this,SLOT(slotDialogoArticuloFinalizado(int)));
 
 
 }
 void MainWindow::slotDialogoArticuloFinalizado(int result) {
-	if(result==QDialog::Accepted || result==QDialog::Rejected){
+	qDebug()<<"Mainwindow:slotDialogoArticuloFinalizado";
+	if(result==QDialog::Accepted){
+		
+		artCtrl->selectAll();
+		artCtrl->getArticulos(&listaArticulo);
 		dArticuloEditar=NULL;
 		delete dArticuloEditar;
+		modeloTablaArticulo->tablaModificada();
+		return;
 	
 	}
+	if(result==QDialog::Rejected){
+		dArticuloEditar=NULL;
+		delete dArticuloEditar;
+		return;
+	
+	}
+	
+	
+	
+	
 }
 void MainWindow::slotDialogoArticuloInsertar(){
 if(dArticuloEditar==NULL){

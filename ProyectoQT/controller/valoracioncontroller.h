@@ -22,6 +22,7 @@ public:
 	void editarValoracion(Valoracion *);
 	void insertarValoracion(Valoracion *);
 	void getValoraciones(QVector<Valoracion*> *);
+	void eliminarValoracion(int);
 	QJsonDocument responseData;
 	
 public slots:

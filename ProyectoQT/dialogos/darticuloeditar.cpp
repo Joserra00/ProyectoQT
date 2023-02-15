@@ -4,6 +4,7 @@
 
 DArticuloEditar::DArticuloEditar(Articulo *articuloPasado,QWidget *parent): QDialog(parent){
 		setupUi(this);
+		btnCancelar->setText("Borrar");
 		artCtrl = new ArticuloController();
 		articulo = articuloPasado;
 		nameLineEdit->insert(articulo->name);
@@ -15,7 +16,7 @@ DArticuloEditar::DArticuloEditar(Articulo *articuloPasado,QWidget *parent): QDia
 		connect(btnGuardar,SIGNAL(clicked()),
 			this,SLOT(slotGuardarDialogo()));
 		connect(btnCancelar,SIGNAL(clicked()),
-			this,SLOT(slotCancelarDialogo()));
+			this,SLOT(slotBorrarDialogo()));
 	
 }
 
@@ -49,6 +50,21 @@ void DArticuloEditar::slotInsertarDialogo(){
 	
 	}
 
+
+}
+void DArticuloEditar::slotBorrarDialogo(){
+	int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres borrar?"),
+	QString("¿Seguro?"),
+	QMessageBox::Yes | QMessageBox::No);
+	if (respuesta == QMessageBox::No) qDebug()<<"no se acepto el dialogo";
+	if(respuesta == QMessageBox::Yes){
+	
+		artCtrl->eliminarArticulo(articulo->id);
+		
+		this->accept();
+		
+	
+	}
 
 }
 

@@ -23,6 +23,7 @@ public:
 	void getCategorias(QVector<Categoria*> *);
 	QJsonDocument responseData;
 	void editarCategoria(Categoria *categoria);
+	void eliminarCategoria(int);
 public slots:
 
 	void slotPeticion(QNetworkReply*);

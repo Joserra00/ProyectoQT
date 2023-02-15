@@ -22,6 +22,7 @@ public:
 	void insertarUsuario(Usuario *);
 	void getUsuarios(QVector<Usuario*> *);
 	void editarUsuario(Usuario *);
+	void eliminarUsuario(int);
 	QJsonDocument responseData;
 	
 public slots:
