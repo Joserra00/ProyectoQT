@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent){
 	crearActions();
 	crearMenus();		
 		
-		
+	modeloTablaArticulo=NULL;
 //instanciamos los dialogos a null
 	dCategoriaEditar = NULL;
 	dValoracionEditar = NULL;
@@ -109,9 +109,16 @@ void MainWindow::crearTablaArticulo(){
 
 }
 void MainWindow::slotPeticionArticuloTerminada(){
+	if(modeloTablaArticulo==NULL){
 	artCtrl->getArticulos(&listaArticulo);
+	qDebug()<<"entro en slotPeticionArticuloTerminada primero, tamaño lista articulo:"<<listaArticulo.size();
 	crearTablaArticulo();
-
+	}else{
+		artCtrl->getArticulos(&listaArticulo);
+		qDebug()<<"entro en slotPeticionArticuloTerminada, tamaño lista articulo:"<<listaArticulo.size();
+		modeloTablaArticulo->tablaModificada();
+	
+		}
 }
 void MainWindow::slotDialogoArticulo(const QModelIndex &index){
 	int i =  index.row();
@@ -126,23 +133,21 @@ void MainWindow::slotDialogoArticulo(const QModelIndex &index){
 
 }
 void MainWindow::slotDialogoArticuloFinalizado(int result) {
-	qDebug()<<"Mainwindow:slotDialogoArticuloFinalizado";
 	if(result==QDialog::Accepted){
-		
-		artCtrl->selectAll();
-		artCtrl->getArticulos(&listaArticulo);
 		dArticuloEditar=NULL;
 		delete dArticuloEditar;
-		modeloTablaArticulo->tablaModificada();
-		return;
+		qDebug()<<"se acepta el dialogo";
+		artCtrl->selectAll();
 	
 	}
 	if(result==QDialog::Rejected){
+		qDebug()<<"se reject el dialogo";
 		dArticuloEditar=NULL;
 		delete dArticuloEditar;
-		return;
-	
+
 	}
+	
+	
 	
 	
 	

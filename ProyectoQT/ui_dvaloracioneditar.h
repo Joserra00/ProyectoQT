@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dvaloracioneditar.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.3
+** Created by: Qt User Interface Compiler version 5.12.8
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -75,13 +75,13 @@ public:
 
     void retranslateUi(QDialog *DValoracionEditar)
     {
-        DValoracionEditar->setWindowTitle(QCoreApplication::translate("DValoracionEditar", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("DValoracionEditar", "Name", nullptr));
-        label_2->setText(QCoreApplication::translate("DValoracionEditar", "Opinion", nullptr));
-        label_3->setText(QCoreApplication::translate("DValoracionEditar", "Puntuacion", nullptr));
-        label_4->setText(QCoreApplication::translate("DValoracionEditar", "Usuario", nullptr));
-        btnGuardar->setText(QCoreApplication::translate("DValoracionEditar", "Guardar", nullptr));
-        btnCancelar->setText(QCoreApplication::translate("DValoracionEditar", "Cancelar", nullptr));
+        DValoracionEditar->setWindowTitle(QApplication::translate("DValoracionEditar", "Dialog", nullptr));
+        label->setText(QApplication::translate("DValoracionEditar", "Name", nullptr));
+        label_2->setText(QApplication::translate("DValoracionEditar", "Opinion", nullptr));
+        label_3->setText(QApplication::translate("DValoracionEditar", "Puntuacion", nullptr));
+        label_4->setText(QApplication::translate("DValoracionEditar", "Usuario", nullptr));
+        btnGuardar->setText(QApplication::translate("DValoracionEditar", "Guardar", nullptr));
+        btnCancelar->setText(QApplication::translate("DValoracionEditar", "Cancelar", nullptr));
     } // retranslateUi
 
 };

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dlogin.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.3
+** Created by: Qt User Interface Compiler version 5.12.8
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -64,11 +64,11 @@ public:
 
     void retranslateUi(QDialog *DLogin)
     {
-        DLogin->setWindowTitle(QCoreApplication::translate("DLogin", "Dialog", nullptr));
-        btnLogin->setText(QCoreApplication::translate("DLogin", "Iniciar Sesi\303\263n", nullptr));
-        btnSalir->setText(QCoreApplication::translate("DLogin", "Salir", nullptr));
-        label->setText(QCoreApplication::translate("DLogin", "Nombre", nullptr));
-        label_2->setText(QCoreApplication::translate("DLogin", "Contrase\303\261a", nullptr));
+        DLogin->setWindowTitle(QApplication::translate("DLogin", "Dialog", nullptr));
+        btnLogin->setText(QApplication::translate("DLogin", "Iniciar Sesi\303\263n", nullptr));
+        btnSalir->setText(QApplication::translate("DLogin", "Salir", nullptr));
+        label->setText(QApplication::translate("DLogin", "Nombre", nullptr));
+        label_2->setText(QApplication::translate("DLogin", "Contrase\303\261a", nullptr));
     } // retranslateUi
 
 };

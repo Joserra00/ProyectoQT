@@ -91,7 +91,7 @@ void DArticuloEditar::slotGuardarDialogo(){
 
 }
 void DArticuloEditar::slotCancelarDialogo(){
-
+	qDebug()<<"se cancela el dialogo";
 	this->reject();
 
 
@@ -101,7 +101,7 @@ void DArticuloEditar::slotCancelarDialogo(){
 }
 void DArticuloEditar::closeEvent(QCloseEvent *event)
 {
-
+	qDebug()<<"se cierra el dialogo";
        this->reject();
   
 

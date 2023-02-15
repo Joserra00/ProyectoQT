@@ -174,7 +174,6 @@ qDebug()<<"Llego a selectall";
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
-	qDebug()<<" No Se ha realizado la peticion";
 	connect(manager,SIGNAL(finished(QNetworkReply *)),
 		this,SLOT(slotPeticion(QNetworkReply *)));
       
@@ -190,6 +189,7 @@ qDebug()<<"Se ha realizado la peticion";
         } else {
         	
             responseData =QJsonDocument::fromJson(reply->readAll());
+
             emit peticionTerminada();
             
                
@@ -204,10 +204,12 @@ void ArticuloController::getArticulos(QVector<Articulo*> *listaArticulo){
 		
 		}
 		listaArticulo->clear();
- 	QJsonObject jsonResponse = responseData.object();
+		qDebug()<<"tamaño despues del clear:"<<listaArticulo->size();
+ 		QJsonObject jsonResponse = responseData.object();
             
             if(jsonResponse.contains("result")){
             	QJsonArray result = jsonResponse["result"].toArray();
+            	qDebug()<<"result size:"<<result.size();
             	for(int i = 0; i < result.size(); i++){
             		QJsonObject partner = result[i].toObject();
             		QJsonArray resultCategory = partner["categoria"].toArray();
@@ -221,7 +223,7 @@ void ArticuloController::getArticulos(QVector<Articulo*> *listaArticulo){
             		resultUsuario.at(0).toInt());
             		listaArticulo->append(articulo);
             	}
-            	qDebug()<<listaArticulo->size();
+            	qDebug()<<"tamaño despues de la peticion"<<listaArticulo->size();
             	
             
             }
