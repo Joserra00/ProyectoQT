@@ -31,6 +31,8 @@ void CategoriaController::insertarCategoria(Categoria *categoria){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -75,6 +77,8 @@ void CategoriaController::editarCategoria(Categoria *categoria){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -113,6 +117,8 @@ void CategoriaController::eliminarCategoria(int id){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -183,8 +189,13 @@ void CategoriaController::slotPeticion(QNetworkReply* reply){
 }
 
 void CategoriaController::getCategorias(QVector<Categoria*> *listaCategoria){
+ 	for(int i = 0; i<listaCategoria->size();i++){
+			delete listaCategoria->at(i);
+		
+		}
+	listaCategoria->clear();
+ 	
  	QJsonObject jsonResponse = responseData.object();
-            
             
             if(jsonResponse.contains("result")){
             	QJsonArray result = jsonResponse["result"].toArray();

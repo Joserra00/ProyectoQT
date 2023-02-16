@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dusuario.ui'
 **
-** Created by: Qt User Interface Compiler version 5.15.3
+** Created by: Qt User Interface Compiler version 5.12.8
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -91,15 +91,15 @@ public:
 
     void retranslateUi(QDialog *DUsuario)
     {
-        DUsuario->setWindowTitle(QCoreApplication::translate("DUsuario", "Dialog", nullptr));
-        label->setText(QCoreApplication::translate("DUsuario", "Name", nullptr));
-        label_2->setText(QCoreApplication::translate("DUsuario", "Email", nullptr));
-        label_3->setText(QCoreApplication::translate("DUsuario", "Phone", nullptr));
-        label_4->setText(QCoreApplication::translate("DUsuario", "City", nullptr));
-        label_5->setText(QCoreApplication::translate("DUsuario", "Fecha Nacimiento", nullptr));
-        label_6->setText(QCoreApplication::translate("DUsuario", "Contrasenya", nullptr));
-        btnGuardar->setText(QCoreApplication::translate("DUsuario", "Guardar", nullptr));
-        btnCancelar->setText(QCoreApplication::translate("DUsuario", "Cancelar", nullptr));
+        DUsuario->setWindowTitle(QApplication::translate("DUsuario", "Dialog", nullptr));
+        label->setText(QApplication::translate("DUsuario", "Name", nullptr));
+        label_2->setText(QApplication::translate("DUsuario", "Email", nullptr));
+        label_3->setText(QApplication::translate("DUsuario", "Phone", nullptr));
+        label_4->setText(QApplication::translate("DUsuario", "City", nullptr));
+        label_5->setText(QApplication::translate("DUsuario", "Fecha Nacimiento", nullptr));
+        label_6->setText(QApplication::translate("DUsuario", "Contrasenya", nullptr));
+        btnGuardar->setText(QApplication::translate("DUsuario", "Guardar", nullptr));
+        btnCancelar->setText(QApplication::translate("DUsuario", "Cancelar", nullptr));
     } // retranslateUi
 
 };

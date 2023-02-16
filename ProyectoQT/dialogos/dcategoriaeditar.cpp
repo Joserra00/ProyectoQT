@@ -14,14 +14,18 @@ DCategoriaEditar::DCategoriaEditar(Categoria *categoriaPasada,QWidget *parent): 
 			connect(btnCancelar,SIGNAL(clicked()),
 			this,SLOT(slotBorrarDialogo()));
 		catCtrl = new CategoriaController();
+		connect(catCtrl,SIGNAL(peticionTerminadaCategoria()),
+			this,SLOT(slotEmitirAccept()));
 }
 DCategoriaEditar::DCategoriaEditar(QWidget *parent): QDialog(parent){
 		setupUi(this);
 		connect(btnGuardar,SIGNAL(clicked()),
 			this,SLOT(slotInsertarDialogo()));
-			connect(btnCancelar,SIGNAL(clicked()),
+		connect(btnCancelar,SIGNAL(clicked()),
 			this,SLOT(slotCancelarDialogo()));
 		catCtrl = new CategoriaController();
+		connect(catCtrl,SIGNAL(peticionTerminadaCategoria()),
+			this,SLOT(slotEmitirAccept()));
 }
 
 void DCategoriaEditar::slotInsertarDialogo(){
@@ -33,7 +37,6 @@ void DCategoriaEditar::slotInsertarDialogo(){
 		categoria = new Categoria(nameEditLine->displayText(),
 		descEditLine->displayText());
 		catCtrl->insertarCategoria(categoria);
-		this->accept();
 		
 	
 	}
@@ -48,7 +51,6 @@ void DCategoriaEditar::slotBorrarDialogo(){
 	if(respuesta == QMessageBox::Yes){
 	
 		catCtrl->eliminarCategoria(categoria->id);
-		this->accept();
 		
 	
 	}
@@ -66,7 +68,7 @@ void DCategoriaEditar::slotGuardarDialogo(){
 		categoria->name=nameEditLine->displayText();
 		categoria->descripcion_categoria=descEditLine->displayText();
 		catCtrl->editarCategoria(categoria);
-		this->accept();
+		
 		
 	
 	}
@@ -89,5 +91,8 @@ void DCategoriaEditar::closeEvent(QCloseEvent *event)
   
 
     
+}
+void DCategoriaEditar::slotEmitirAccept(){
+	this->accept();
 }
 

@@ -15,6 +15,8 @@ DValoracionEditar::DValoracionEditar(Valoracion *valoracionPasada,QWidget *paren
 			connect(btnCancelar,SIGNAL(clicked()),
 			this,SLOT(slotCancelarDialogo()));
 		valCtrl = new ValoracionController();
+		connect(valCtrl,SIGNAL(peticionTerminada()),
+			this,SLOT(slotEmitirAccept()));
 
 }
 DValoracionEditar::DValoracionEditar(QWidget *parent): QDialog(parent){
@@ -25,6 +27,8 @@ DValoracionEditar::DValoracionEditar(QWidget *parent): QDialog(parent){
 	connect(btnCancelar,SIGNAL(clicked()),
 			this,SLOT(slotCancelarDialogo()));
 	valCtrl = new ValoracionController();
+	connect(valCtrl,SIGNAL(peticionTerminada()),
+			this,SLOT(slotEmitirAccept()));
 
 }
 void DValoracionEditar::slotInsertarDialogo(){
@@ -38,9 +42,7 @@ int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres guard
 		puntuacionLineEdit->displayText().toFloat(),
 		usuarioLineEdit->displayText().toInt());
 		valCtrl->insertarValoracion(valoracion);
-		this->accept();
 		
-	
 	}
 
 
@@ -59,9 +61,7 @@ int respuesta = QMessageBox::warning(this,QString("Esta seguro que quieres guard
 		valoracion->puntuacion=(puntuacionLineEdit->displayText().toFloat());
 		valoracion->usuario=(usuarioLineEdit->displayText().toInt());
 		valCtrl->editarValoracion(valoracion);
-		this->accept();
 		
-	
 	}
 
 
@@ -74,9 +74,7 @@ void DValoracionEditar::slotBorrarDialogo(){
 	QMessageBox::Yes | QMessageBox::No);
 	if (respuesta == QMessageBox::No) qDebug()<<"no se acepto el dialogo";
 	if(respuesta == QMessageBox::Yes){
-	
 		valCtrl->eliminarValoracion(valoracion->id);
-		this->accept();
 		
 	
 	}
@@ -87,6 +85,11 @@ void DValoracionEditar::slotCancelarDialogo(){
 	this->reject();
 
 
+
+}
+void DValoracionEditar::slotEmitirAccept(){
+
+	this->accept();
 
 }
 

@@ -32,6 +32,8 @@ void MensajeController::insertarMensaje(Mensaje *mensaje){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -79,6 +81,8 @@ void MensajeController::editarMensaje(Mensaje *mensaje){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -117,6 +121,8 @@ void MensajeController::eliminarMensaje(int id){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -192,6 +198,11 @@ void MensajeController::slotPeticion(QNetworkReply* reply){
 }
 
 void MensajeController::getMensajes(QVector<Mensaje*> *listaMensaje){
+	for(int i = 0; i<listaMensaje->size();i++){
+		delete listaMensaje->at(i);
+		
+	}
+	listaMensaje->clear();
  	QJsonObject jsonResponse = responseData.object();
             
             if(jsonResponse.contains("result")){

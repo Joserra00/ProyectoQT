@@ -195,7 +195,6 @@ void ArticuloController::slotPeticion(QNetworkReply* reply){
         } else  if (reply->isFinished()){
         	
             responseData =QJsonDocument::fromJson(reply->readAll());
-            qDebug()<<responseData;
             emit peticionTerminada();
             
                

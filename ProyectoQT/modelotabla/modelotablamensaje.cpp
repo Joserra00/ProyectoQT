@@ -73,4 +73,10 @@ QVariant ModeloTablaMensaje::headerData(int section,Qt::Orientation orientation,
 		}
 		return QVariant();
 }
+void ModeloTablaMensaje::tablaModificada(){
+	emit layoutChanged();
+
+
+
+}
 

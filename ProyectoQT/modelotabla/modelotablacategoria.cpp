@@ -60,4 +60,8 @@ QVariant ModeloTablaCategoria::headerData(int section,Qt::Orientation orientatio
 		}
 		return QVariant();
 }
+void ModeloTablaCategoria::tablaModificada(){
+	emit layoutChanged();
+
+}
 

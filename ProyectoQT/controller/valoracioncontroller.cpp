@@ -32,6 +32,8 @@ void ValoracionController::insertarValoracion(Valoracion *valoracion){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -78,6 +80,8 @@ void ValoracionController::editarValoracion(Valoracion *valoracion){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -116,6 +120,8 @@ void ValoracionController::eliminarValoracion(int id){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -161,13 +167,14 @@ void ValoracionController::selectAll(){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
 	
-	connect(manager,SIGNAL(finished(QNetworkReply *)),
-		this,SLOT(slotPeticion(QNetworkReply *)));
+
       
 	
 
@@ -189,6 +196,11 @@ void ValoracionController::slotPeticion(QNetworkReply* reply){
 }
 
 void ValoracionController::getValoraciones(QVector<Valoracion*> *listaValoracion){
+for(int i = 0; i<listaValoracion->size();i++){
+		delete listaValoracion->at(i);
+		
+	}
+	listaValoracion->clear();
  	QJsonObject jsonResponse = responseData.object();
             
             

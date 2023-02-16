@@ -15,7 +15,8 @@ DMensajeEditar::DMensajeEditar(Mensaje *mensajePasado,QWidget *parent): QDialog(
 		connect(btnCancelar,SIGNAL(clicked()),
 			this,SLOT(slotCancelarDialogo()));
 		menCtrl = new MensajeController();
-
+		connect(menCtrl,SIGNAL(peticionTerminada()),
+			this,SLOT(slotEmitirAccept()));
 	
 }
 DMensajeEditar::DMensajeEditar(QWidget *parent): QDialog(parent){
@@ -26,6 +27,8 @@ DMensajeEditar::DMensajeEditar(QWidget *parent): QDialog(parent){
 		connect(btnCancelar,SIGNAL(clicked()),
 			this,SLOT(slotCancelarDialogo()));
 		menCtrl = new MensajeController();
+		connect(menCtrl,SIGNAL(peticionTerminada()),
+			this,SLOT(slotEmitirAccept()));
 
 	
 }
@@ -43,8 +46,6 @@ void DMensajeEditar::slotInsertarDialogo(){
 		contenidoLineEdit->displayText());
 	
 		menCtrl->insertarMensaje(mensaje);
-		
-		this->accept();
 		
 	
 	}
@@ -65,7 +66,7 @@ void DMensajeEditar::slotGuardarDialogo(){
 		mensaje->usuario_receptor=(usuarioreceptorLineEdit->displayText().toInt());
 		menCtrl->editarMensaje(mensaje);
 		
-		this->accept();
+
 		
 	
 	}
@@ -80,7 +81,7 @@ void DMensajeEditar::slotBorrarDialogo(){
 	if(respuesta == QMessageBox::Yes){
 	
 		menCtrl->eliminarMensaje(mensaje->id);
-		this->accept();
+
 		
 	
 	}
@@ -103,5 +104,9 @@ void DMensajeEditar::closeEvent(QCloseEvent *event)
   
 
     
+}
+void DMensajeEditar::slotEmitirAccept(){
+
+	this->accept();
 }
 

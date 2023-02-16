@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent){
 		
 	modeloTablaArticulo=NULL;
 	modeloTablaUsuario=NULL;
+	modeloTablaCategoria=NULL;
+	modeloTablaMensaje=NULL;
+	modeloTablaValoracion=NULL;
 	connect(btnActTablas,SIGNAL(clicked()),
 			this,SLOT(slotActualizarTablas()));
 //instanciamos los dialogos a null
@@ -71,7 +74,13 @@ void MainWindow::crearTablaValoracion(){
 }
 void MainWindow::slotPeticionValoracionTerminada(){
 	valCtrl->getValoraciones(&listaValoracion);
-	crearTablaValoracion();
+	if(modeloTablaValoracion==NULL){
+		qDebug()<<"entro en slotPeticionValoracionTerminada primero, tamaño lista valoracion:"<<listaValoracion.size();
+		crearTablaValoracion();
+	}else
+		qDebug()<<"entro en slotPeticionValoracionTerminada, tamaño lista valoracion:"<<listaValoracion.size();
+
+	modeloTablaValoracion->tablaModificada();
 
 }
 void MainWindow::slotDialogoValoracion(const QModelIndex &index){
@@ -87,10 +96,16 @@ void MainWindow::slotDialogoValoracion(const QModelIndex &index){
 
 }
 void MainWindow::slotDialogoValoracionFinalizado(int result) {
-	if(result==QDialog::Accepted || result==QDialog::Rejected){
+	if(result==QDialog::Accepted){
 		dValoracionEditar=NULL;
 		delete dValoracionEditar;
+		valCtrl->selectAll();
 	
+	}
+	if(result==QDialog::Rejected){
+		dValoracionEditar=NULL;
+		delete dValoracionEditar;
+
 	}
 
 
@@ -181,7 +196,13 @@ void MainWindow::crearTablaCategoria(){
 }
 void MainWindow::slotPeticionCategoriaTerminada(){
 	catCtrl->getCategorias(&listaCategoria);
-	crearTablaCategoria();
+	if(modeloTablaCategoria==NULL){
+		qDebug()<<"entro en slotPeticionCategoriaTerminada primero, tamaño lista categoria:"<<listaCategoria.size();
+		crearTablaCategoria();
+	}else
+		qDebug()<<"entro en slotPeticionCategoriaTerminada, tamaño lista categoria:"<<listaCategoria.size();
+
+	modeloTablaCategoria->tablaModificada();
 
 }
 void MainWindow::slotDialogoCategoria(const QModelIndex &index){
@@ -198,10 +219,18 @@ void MainWindow::slotDialogoCategoria(const QModelIndex &index){
 
 }
 void MainWindow::slotDialogoCategoriaFinalizado(int result){
-	if(result==QDialog::Accepted || result==QDialog::Rejected){
+	if(result==QDialog::Accepted){
 		dCategoriaEditar=NULL;
 		delete dCategoriaEditar;
+		qDebug()<<"se acepta el dialogo";
+		catCtrl->selectAll();
 	
+	}
+	if(result==QDialog::Rejected){
+		qDebug()<<"se reject el dialogo";
+		dCategoriaEditar=NULL;
+		delete dCategoriaEditar;
+
 	}
 
 }
@@ -228,7 +257,13 @@ void MainWindow::crearTablaMensaje(){
 }
 void MainWindow::slotPeticionMensajeTerminada(){
 	menCtrl->getMensajes(&listaMensaje);
-	crearTablaMensaje();
+	if(modeloTablaMensaje==NULL){
+		qDebug()<<"entro en slotPeticionMensajeTerminada primero, tamaño lista mensaje:"<<listaMensaje.size();
+		crearTablaMensaje();
+	}else
+		qDebug()<<"entro en slotPeticionMensajeTerminada, tamaño lista mensaje:"<<listaMensaje.size();
+
+	modeloTablaMensaje->tablaModificada();
 
 }
 void MainWindow::slotDialogoMensaje(const QModelIndex &index){
@@ -246,10 +281,18 @@ void MainWindow::slotDialogoMensaje(const QModelIndex &index){
 }
 
 void MainWindow::slotDialogoMensajeFinalizado(int result){
-	if(result==QDialog::Accepted || result==QDialog::Rejected){
+	if(result==QDialog::Accepted){
 		dMensajeEditar=NULL;
 		delete dMensajeEditar;
+		qDebug()<<"se acepta el dialogo";
+		menCtrl->selectAll();
 	
+	}
+	if(result==QDialog::Rejected){
+		qDebug()<<"se reject el dialogo";
+		dMensajeEditar=NULL;
+		delete dMensajeEditar;
+
 	}
 }
 

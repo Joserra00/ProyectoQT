@@ -70,3 +70,9 @@ QVariant ModeloTablaValoracion::headerData(int section,Qt::Orientation orientati
 		}
 		return QVariant();
 }
+
+void ModeloTablaValoracion::tablaModificada(){
+
+	emit layoutChanged();
+
+}
