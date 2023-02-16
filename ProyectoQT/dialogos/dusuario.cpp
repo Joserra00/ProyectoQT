@@ -17,6 +17,8 @@ DUsuario::DUsuario(Usuario *usuarioPasado,QWidget *parent): QDialog(parent){
 			this,SLOT(slotGuardarDialogo()));
 		connect(btnCancelar,SIGNAL(clicked()),
 			this,SLOT(slotBorrarDialogo()));
+		connect(usuCtrl,SIGNAL(peticionTerminada()),
+			this,SLOT(slotEmitirAccept()));
 	
 }
 
@@ -27,6 +29,8 @@ DUsuario::DUsuario(QWidget *parent): QDialog(parent){
 			this,SLOT(slotInsertarDialogo()));
 		connect(btnCancelar,SIGNAL(clicked()),
 			this,SLOT(slotCancelarDialogo()));
+			connect(usuCtrl,SIGNAL(peticionTerminada()),
+			this,SLOT(slotEmitirAccept()));
 	
 }
 void DUsuario::slotInsertarDialogo(){
@@ -45,7 +49,6 @@ void DUsuario::slotInsertarDialogo(){
 		
 		usuCtrl->insertarUsuario(usuario);
 		
-		this->accept();
 		
 	
 	}
@@ -68,7 +71,6 @@ void DUsuario::slotGuardarDialogo(){
 		usuario->contrasenya=contrasenyaLineEdit->displayText();
 		usuCtrl->editarUsuario(usuario);
 		
-		this->accept();
 		
 	
 	}
@@ -85,7 +87,6 @@ void DUsuario::slotBorrarDialogo(){
 	
 		usuCtrl->eliminarUsuario(usuario->id);
 		
-		this->accept();
 		
 	
 	}
@@ -109,4 +110,10 @@ void DUsuario::closeEvent(QCloseEvent *event)
 
     
 }
+void DUsuario::slotEmitirAccept(){
+	
+		this->accept();
+}
+
+
 

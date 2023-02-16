@@ -27,6 +27,7 @@ public slots:
 	void slotCancelarDialogo();
 	void slotInsertarDialogo();
 	void slotBorrarDialogo();
+	void slotEmitirAccept();
 
 };
 

@@ -34,6 +34,19 @@
      </attribute>
     </widget>
    </widget>
+   <widget class="QPushButton" name="btnActTablas">
+    <property name="geometry">
+     <rect>
+      <x>548</x>
+      <y>20</y>
+      <width>161</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Actualizar tablas</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

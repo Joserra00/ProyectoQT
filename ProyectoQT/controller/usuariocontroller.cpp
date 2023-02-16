@@ -33,6 +33,8 @@ void UsuarioController::insertarUsuario(Usuario *usuario){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -83,6 +85,8 @@ void UsuarioController::editarUsuario(Usuario *usuario){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -121,6 +125,8 @@ void UsuarioController::eliminarUsuario(int id){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -169,13 +175,14 @@ void UsuarioController::selectAll(){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
 	qDebug()<<" No Se ha realizado la peticion";
-	connect(manager,SIGNAL(finished(QNetworkReply *)),
-		this,SLOT(slotPeticion(QNetworkReply *)));
+	
       
 	
 
@@ -198,6 +205,11 @@ qDebug()<<"Se ha realizado la peticion";
 }
 
 void UsuarioController::getUsuarios(QVector<Usuario*> *listaUsuario){
+	for(int i = 0; i<listaUsuario->size();i++){
+			delete listaUsuario->at(i);
+		
+		}
+	listaUsuario->clear();
  	QJsonObject jsonResponse = responseData.object();
             
             if(jsonResponse.contains("result")){

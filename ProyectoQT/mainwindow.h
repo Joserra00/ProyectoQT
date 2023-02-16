@@ -122,6 +122,8 @@ public slots:
 	void slotPeticionUsuarioTerminada();
 	void slotDialogoUsuarioInsertar();
 	void slotDialogoUsuarioFinalizado(int );
+	
+	void slotActualizarTablas();
 
 };
 

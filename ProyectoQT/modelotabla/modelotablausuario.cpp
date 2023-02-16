@@ -82,3 +82,9 @@ QVariant ModeloTablaUsuario::headerData(int section,Qt::Orientation orientation,
 		return QVariant();
 }
 
+void ModeloTablaUsuario::tablaModificada(){
+	emit layoutChanged();
+
+
+}
+

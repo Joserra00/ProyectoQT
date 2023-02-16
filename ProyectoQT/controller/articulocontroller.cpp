@@ -4,6 +4,7 @@ ArticuloController::ArticuloController( )
 
 }
 void ArticuloController::insertarArticulo(Articulo *articulo){
+qDebug()<<"se realiza el insert";
 	QJsonObject jsonObject;
 	jsonObject.insert("jsonrpc", "2.0");
         jsonObject.insert("method", "call");
@@ -33,6 +34,8 @@ void ArticuloController::insertarArticulo(Articulo *articulo){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -83,6 +86,8 @@ void ArticuloController::editarArticulo(Articulo *articulo){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -121,6 +126,8 @@ void ArticuloController::eliminarArticulo(int id){
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
@@ -170,26 +177,25 @@ qDebug()<<"Llego a selectall";
         
         QByteArray postData = QJsonDocument(jsonObject).toJson();
 	QNetworkAccessManager *manager = new QNetworkAccessManager();
+	connect(manager,SIGNAL(finished(QNetworkReply *)),
+		this,SLOT(slotPeticion(QNetworkReply *)));
 	QNetworkRequest request;
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
-	connect(manager,SIGNAL(finished(QNetworkReply *)),
-		this,SLOT(slotPeticion(QNetworkReply *)));
-      
+	
 	
 
 
 
 }
 void ArticuloController::slotPeticion(QNetworkReply* reply){
-qDebug()<<"Se ha realizado la peticion";
  if (reply->error() != QNetworkReply::NoError) {
             qDebug() << "Error: " << reply->errorString();
-        } else {
+        } else  if (reply->isFinished()){
         	
             responseData =QJsonDocument::fromJson(reply->readAll());
-
+            qDebug()<<responseData;
             emit peticionTerminada();
             
                
