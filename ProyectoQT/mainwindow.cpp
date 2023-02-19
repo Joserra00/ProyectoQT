@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent){
 	dMensajeEditar = NULL;
 	dArticuloEditar = NULL;
 	dUsuario = NULL;
+	dChartArtCategoria = NULL;
 //instanciamos tablas
 	tabSimarropop->clear();
 	tablaValoracion = new QTableView();
@@ -370,6 +371,14 @@ if(dUsuario==NULL){
 
 }
 
+void MainWindow::slotDialogoChartArtCat(){
+	if(dChartArtCategoria==NULL){
+		dChartArtCategoria = new DChartArtCategoria();
+		}
+		dChartArtCategoria->show();
+
+}
+
 
 
 //CREACION DE ACTIONS
@@ -392,6 +401,10 @@ void MainWindow::crearActions(){
 	accionInsertMensaje = new QAction("Insertar Mensaje");
 	connect(accionInsertMensaje,SIGNAL(triggered()),
 		this,SLOT(slotDialogoMensajeInsertar()));
+	accionChartArtCategoria = new QAction("Chart Articulo Categoria");
+	connect(accionChartArtCategoria,SIGNAL(triggered()),
+		this,SLOT(slotDialogoChartArtCat()));
+	
 	
 
 }
@@ -403,6 +416,8 @@ void MainWindow::crearMenus(){
 	menuInsertar->addAction(accionInsertValoracion);
 	menuInsertar->addAction(accionInsertCategoria);
 	menuInsertar->addAction(accionInsertMensaje);
+	QMenu * menuCharts = menuBar()->addMenu("Charts");
+	menuCharts->addAction(accionChartArtCategoria);
 
 }
 

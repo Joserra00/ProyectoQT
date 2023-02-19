@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dcategoriaeditar.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.8
+** Created by: Qt User Interface Compiler version 5.15.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -59,11 +59,11 @@ public:
 
     void retranslateUi(QDialog *DCategoriaEditar)
     {
-        DCategoriaEditar->setWindowTitle(QApplication::translate("DCategoriaEditar", "Dialog", nullptr));
-        label->setText(QApplication::translate("DCategoriaEditar", "Name", nullptr));
-        label_2->setText(QApplication::translate("DCategoriaEditar", "Descripcion categoria", nullptr));
-        btnGuardar->setText(QApplication::translate("DCategoriaEditar", "Guardar", nullptr));
-        btnCancelar->setText(QApplication::translate("DCategoriaEditar", "Cancelar", nullptr));
+        DCategoriaEditar->setWindowTitle(QCoreApplication::translate("DCategoriaEditar", "Dialog", nullptr));
+        label->setText(QCoreApplication::translate("DCategoriaEditar", "Name", nullptr));
+        label_2->setText(QCoreApplication::translate("DCategoriaEditar", "Descripcion categoria", nullptr));
+        btnGuardar->setText(QCoreApplication::translate("DCategoriaEditar", "Guardar", nullptr));
+        btnCancelar->setText(QCoreApplication::translate("DCategoriaEditar", "Cancelar", nullptr));
     } // retranslateUi
 
 };

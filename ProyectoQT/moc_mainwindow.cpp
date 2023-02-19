@@ -1,18 +1,19 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.8)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.3)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "mainwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.12.8. It"
+#error "This file was generated using the moc from 5.15.3. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[25];
-    char stringdata0[601];
+    QByteArrayData data[26];
+    char stringdata0[624];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -55,7 +56,8 @@ QT_MOC_LITERAL(20, 476, 18), // "slotDialogoUsuario"
 QT_MOC_LITERAL(21, 495, 28), // "slotPeticionUsuarioTerminada"
 QT_MOC_LITERAL(22, 524, 26), // "slotDialogoUsuarioInsertar"
 QT_MOC_LITERAL(23, 551, 28), // "slotDialogoUsuarioFinalizado"
-QT_MOC_LITERAL(24, 580, 20) // "slotActualizarTablas"
+QT_MOC_LITERAL(24, 580, 20), // "slotActualizarTablas"
+QT_MOC_LITERAL(25, 601, 22) // "slotDialogoChartArtCat"
 
     },
     "MainWindow\0slotEjemplo\0\0slotDialogoValoracion\0"
@@ -75,7 +77,7 @@ QT_MOC_LITERAL(24, 580, 20) // "slotActualizarTablas"
     "slotDialogoUsuario\0slotPeticionUsuarioTerminada\0"
     "slotDialogoUsuarioInsertar\0"
     "slotDialogoUsuarioFinalizado\0"
-    "slotActualizarTablas"
+    "slotActualizarTablas\0slotDialogoChartArtCat"
 };
 #undef QT_MOC_LITERAL
 
@@ -85,7 +87,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      22,   14, // methods
+      23,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -93,28 +95,29 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  124,    2, 0x0a /* Public */,
-       3,    1,  125,    2, 0x0a /* Public */,
-       5,    0,  128,    2, 0x0a /* Public */,
-       6,    0,  129,    2, 0x0a /* Public */,
-       7,    1,  130,    2, 0x0a /* Public */,
-       8,    1,  133,    2, 0x0a /* Public */,
-       9,    0,  136,    2, 0x0a /* Public */,
-      10,    0,  137,    2, 0x0a /* Public */,
-      11,    1,  138,    2, 0x0a /* Public */,
-      12,    1,  141,    2, 0x0a /* Public */,
-      13,    0,  144,    2, 0x0a /* Public */,
-      14,    0,  145,    2, 0x0a /* Public */,
-      15,    1,  146,    2, 0x0a /* Public */,
-      16,    1,  149,    2, 0x0a /* Public */,
-      17,    0,  152,    2, 0x0a /* Public */,
-      18,    0,  153,    2, 0x0a /* Public */,
-      19,    1,  154,    2, 0x0a /* Public */,
-      20,    1,  157,    2, 0x0a /* Public */,
-      21,    0,  160,    2, 0x0a /* Public */,
-      22,    0,  161,    2, 0x0a /* Public */,
-      23,    1,  162,    2, 0x0a /* Public */,
-      24,    0,  165,    2, 0x0a /* Public */,
+       1,    0,  129,    2, 0x0a /* Public */,
+       3,    1,  130,    2, 0x0a /* Public */,
+       5,    0,  133,    2, 0x0a /* Public */,
+       6,    0,  134,    2, 0x0a /* Public */,
+       7,    1,  135,    2, 0x0a /* Public */,
+       8,    1,  138,    2, 0x0a /* Public */,
+       9,    0,  141,    2, 0x0a /* Public */,
+      10,    0,  142,    2, 0x0a /* Public */,
+      11,    1,  143,    2, 0x0a /* Public */,
+      12,    1,  146,    2, 0x0a /* Public */,
+      13,    0,  149,    2, 0x0a /* Public */,
+      14,    0,  150,    2, 0x0a /* Public */,
+      15,    1,  151,    2, 0x0a /* Public */,
+      16,    1,  154,    2, 0x0a /* Public */,
+      17,    0,  157,    2, 0x0a /* Public */,
+      18,    0,  158,    2, 0x0a /* Public */,
+      19,    1,  159,    2, 0x0a /* Public */,
+      20,    1,  162,    2, 0x0a /* Public */,
+      21,    0,  165,    2, 0x0a /* Public */,
+      22,    0,  166,    2, 0x0a /* Public */,
+      23,    1,  167,    2, 0x0a /* Public */,
+      24,    0,  170,    2, 0x0a /* Public */,
+      25,    0,  171,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -139,6 +142,7 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    2,
     QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -147,7 +151,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         auto *_t = static_cast<MainWindow *>(_o);
-        Q_UNUSED(_t)
+        (void)_t;
         switch (_id) {
         case 0: _t->slotEjemplo(); break;
         case 1: _t->slotDialogoValoracion((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
@@ -171,13 +175,14 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 19: _t->slotDialogoUsuarioInsertar(); break;
         case 20: _t->slotDialogoUsuarioFinalizado((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 21: _t->slotActualizarTablas(); break;
+        case 22: _t->slotDialogoChartArtCat(); break;
         default: ;
         }
     }
 }
 
 QT_INIT_METAOBJECT const QMetaObject MainWindow::staticMetaObject = { {
-    &QMainWindow::staticMetaObject,
+    QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
     qt_meta_stringdata_MainWindow.data,
     qt_meta_data_MainWindow,
     qt_static_metacall,
@@ -207,13 +212,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 22)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 22;
+        _id -= 23;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 22)
+        if (_id < 23)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 22;
+        _id -= 23;
     }
     return _id;
 }

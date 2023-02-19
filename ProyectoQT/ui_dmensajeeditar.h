@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dmensajeeditar.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.8
+** Created by: Qt User Interface Compiler version 5.15.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -75,13 +75,13 @@ public:
 
     void retranslateUi(QDialog *DMensajeEditar)
     {
-        DMensajeEditar->setWindowTitle(QApplication::translate("DMensajeEditar", "Dialog", nullptr));
-        label->setText(QApplication::translate("DMensajeEditar", "Name", nullptr));
-        label_2->setText(QApplication::translate("DMensajeEditar", "Usuario", nullptr));
-        label_3->setText(QApplication::translate("DMensajeEditar", "Usuario receptor", nullptr));
-        label_4->setText(QApplication::translate("DMensajeEditar", "Contenido", nullptr));
-        btnGuardar->setText(QApplication::translate("DMensajeEditar", "Guardar", nullptr));
-        btnCancelar->setText(QApplication::translate("DMensajeEditar", "Cancelar", nullptr));
+        DMensajeEditar->setWindowTitle(QCoreApplication::translate("DMensajeEditar", "Dialog", nullptr));
+        label->setText(QCoreApplication::translate("DMensajeEditar", "Name", nullptr));
+        label_2->setText(QCoreApplication::translate("DMensajeEditar", "Usuario", nullptr));
+        label_3->setText(QCoreApplication::translate("DMensajeEditar", "Usuario receptor", nullptr));
+        label_4->setText(QCoreApplication::translate("DMensajeEditar", "Contenido", nullptr));
+        btnGuardar->setText(QCoreApplication::translate("DMensajeEditar", "Guardar", nullptr));
+        btnCancelar->setText(QCoreApplication::translate("DMensajeEditar", "Cancelar", nullptr));
     } // retranslateUi
 
 };

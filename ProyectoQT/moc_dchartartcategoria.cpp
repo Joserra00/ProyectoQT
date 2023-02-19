@@ -1,5 +1,5 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'dlogin.h'
+** Meta object code from reading C++ file 'dchartartcategoria.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.3)
 **
@@ -7,11 +7,11 @@
 *****************************************************************************/
 
 #include <memory>
-#include "dlogin.h"
+#include "dialogos/dchartartcategoria.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'dlogin.h' doesn't include <QObject>."
+#error "The header file 'dchartartcategoria.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.15.3. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -21,27 +21,27 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_DLogin_t {
+struct qt_meta_stringdata_DChartArtCategoria_t {
     QByteArrayData data[3];
-    char stringdata0[20];
+    char stringdata0[32];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_DLogin_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_DChartArtCategoria_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_DLogin_t qt_meta_stringdata_DLogin = {
+static const qt_meta_stringdata_DChartArtCategoria_t qt_meta_stringdata_DChartArtCategoria = {
     {
-QT_MOC_LITERAL(0, 0, 6), // "DLogin"
-QT_MOC_LITERAL(1, 7, 11), // "slotAceptar"
-QT_MOC_LITERAL(2, 19, 0) // ""
+QT_MOC_LITERAL(0, 0, 18), // "DChartArtCategoria"
+QT_MOC_LITERAL(1, 19, 11), // "slotEjemplo"
+QT_MOC_LITERAL(2, 31, 0) // ""
 
     },
-    "DLogin\0slotAceptar\0"
+    "DChartArtCategoria\0slotEjemplo\0"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_DLogin[] = {
+static const uint qt_meta_data_DChartArtCategoria[] = {
 
  // content:
        8,       // revision
@@ -63,45 +63,45 @@ static const uint qt_meta_data_DLogin[] = {
        0        // eod
 };
 
-void DLogin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void DChartArtCategoria::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<DLogin *>(_o);
+        auto *_t = static_cast<DChartArtCategoria *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->slotAceptar(); break;
+        case 0: _t->slotEjemplo(); break;
         default: ;
         }
     }
     (void)_a;
 }
 
-QT_INIT_METAOBJECT const QMetaObject DLogin::staticMetaObject = { {
+QT_INIT_METAOBJECT const QMetaObject DChartArtCategoria::staticMetaObject = { {
     QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
-    qt_meta_stringdata_DLogin.data,
-    qt_meta_data_DLogin,
+    qt_meta_stringdata_DChartArtCategoria.data,
+    qt_meta_data_DChartArtCategoria,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *DLogin::metaObject() const
+const QMetaObject *DChartArtCategoria::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *DLogin::qt_metacast(const char *_clname)
+void *DChartArtCategoria::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_DLogin.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_DChartArtCategoria.stringdata0))
         return static_cast<void*>(this);
-    if (!strcmp(_clname, "Ui::DLogin"))
-        return static_cast< Ui::DLogin*>(this);
+    if (!strcmp(_clname, "Ui::DChartArtCategoria"))
+        return static_cast< Ui::DChartArtCategoria*>(this);
     return QDialog::qt_metacast(_clname);
 }
 
-int DLogin::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int DChartArtCategoria::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)

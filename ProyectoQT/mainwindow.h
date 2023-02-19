@@ -45,6 +45,11 @@
 #include "dialogos/dmensajeeditar.h"
 #include "dialogos/darticuloeditar.h"
 #include "dialogos/dusuario.h"
+#include "dialogos/dchartartcategoria.h"
+#include <QtCharts>
+#include <QtCharts/QChartView>
+QT_CHARTS_USE_NAMESPACE
+
 
 
 class MainWindow : public QMainWindow, public Ui::MainWindow {
@@ -88,9 +93,10 @@ public:
 	DUsuario *dUsuario;
 	
 	
+	DChartArtCategoria *dChartArtCategoria;
 	void crearMenus();
 	void crearActions();
-	QAction *accionInsertUsuario,*accionInsertArticulo,*accionInsertValoracion,*accionInsertCategoria,*accionInsertMensaje;
+	QAction *accionInsertUsuario,*accionInsertArticulo,*accionInsertValoracion,*accionInsertCategoria,*accionInsertMensaje,*accionChartArtCategoria;
 
 public slots:
 	void slotEjemplo();
@@ -124,6 +130,7 @@ public slots:
 	void slotDialogoUsuarioFinalizado(int );
 	
 	void slotActualizarTablas();
+	void slotDialogoChartArtCat();
 
 };
 
