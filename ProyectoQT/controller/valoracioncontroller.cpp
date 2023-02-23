@@ -216,7 +216,6 @@ for(int i = 0; i<listaValoracion->size();i++){
             		resultUsuario.at(0).toInt());
             		listaValoracion->append(valoracion);
             	}
-            	qDebug()<<listaValoracion->size();
             	
             
             }

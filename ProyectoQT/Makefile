@@ -52,10 +52,7 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = database.cpp \
-		dlogin.cpp \
-		jsonbuilder.cpp \
-		main.cpp \
+SOURCES       = main.cpp \
 		mainwindow.cpp \
 		controller/articulocontroller.cpp \
 		controller/categoriacontroller.cpp \
@@ -77,8 +74,7 @@ SOURCES       = database.cpp \
 		modelotabla/modelotablacategoria.cpp \
 		modelotabla/modelotablamensaje.cpp \
 		modelotabla/modelotablausuario.cpp \
-		modelotabla/modelotablavaloracion.cpp moc_dlogin.cpp \
-		moc_mainwindow.cpp \
+		modelotabla/modelotablavaloracion.cpp moc_mainwindow.cpp \
 		moc_articulocontroller.cpp \
 		moc_categoriacontroller.cpp \
 		moc_mensajecontroller.cpp \
@@ -95,10 +91,7 @@ SOURCES       = database.cpp \
 		moc_modelotablamensaje.cpp \
 		moc_modelotablausuario.cpp \
 		moc_modelotablavaloracion.cpp
-OBJECTS       = database.o \
-		dlogin.o \
-		jsonbuilder.o \
-		main.o \
+OBJECTS       = main.o \
 		mainwindow.o \
 		articulocontroller.o \
 		categoriacontroller.o \
@@ -121,7 +114,6 @@ OBJECTS       = database.o \
 		modelotablamensaje.o \
 		modelotablausuario.o \
 		modelotablavaloracion.o \
-		moc_dlogin.o \
 		moc_mainwindow.o \
 		moc_articulocontroller.o \
 		moc_categoriacontroller.o \
@@ -221,10 +213,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		ProyectoQT.pro database.h \
-		dlogin.h \
-		jsonbuilder.h \
-		mainwindow.h \
+		ProyectoQT.pro mainwindow.h \
 		controller/articulocontroller.h \
 		controller/categoriacontroller.h \
 		controller/mensajecontroller.h \
@@ -246,10 +235,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		modelotabla/modelotablacategoria.h \
 		modelotabla/modelotablamensaje.h \
 		modelotabla/modelotablausuario.h \
-		modelotabla/modelotablavaloracion.h database.cpp \
-		dlogin.cpp \
-		jsonbuilder.cpp \
-		main.cpp \
+		modelotabla/modelotablavaloracion.h main.cpp \
 		mainwindow.cpp \
 		controller/articulocontroller.cpp \
 		controller/categoriacontroller.cpp \
@@ -280,7 +266,7 @@ TARGET        = ProyectoQT
 first: all
 ####### Build rules
 
-ProyectoQT: ui_dlogin.h ui_mainwindow.h ui_darticuloeditar.h ui_dcategoriaeditar.h ui_dchartartcategoria.h ui_dmensajeeditar.h ui_dusuario.h ui_dvaloracioneditar.h $(OBJECTS)  
+ProyectoQT: ui_mainwindow.h ui_darticuloeditar.h ui_dcategoriaeditar.h ui_dchartartcategoria.h ui_dmensajeeditar.h ui_dusuario.h ui_dvaloracioneditar.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ProyectoQT.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -465,9 +451,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents database.h dlogin.h jsonbuilder.h mainwindow.h controller/articulocontroller.h controller/categoriacontroller.h controller/mensajecontroller.h controller/usuariocontroller.h controller/valoracioncontroller.h dialogos/darticuloeditar.h dialogos/dcategoriaeditar.h dialogos/dchartartcategoria.h dialogos/dmensajeeditar.h dialogos/dusuario.h dialogos/dvaloracioneditar.h model/articulo.h model/categoria.h model/globalvariable.h model/mensaje.h model/usuario.h model/valoracion.h modelotabla/modelotablaarticulo.h modelotabla/modelotablacategoria.h modelotabla/modelotablamensaje.h modelotabla/modelotablausuario.h modelotabla/modelotablavaloracion.h $(DISTDIR)/
-	$(COPY_FILE) --parents database.cpp dlogin.cpp jsonbuilder.cpp main.cpp mainwindow.cpp controller/articulocontroller.cpp controller/categoriacontroller.cpp controller/mensajecontroller.cpp controller/usuariocontroller.cpp controller/valoracioncontroller.cpp dialogos/darticuloeditar.cpp dialogos/dcategoriaeditar.cpp dialogos/dchartartcategoria.cpp dialogos/dmensajeeditar.cpp dialogos/dusuario.cpp dialogos/dvaloracioneditar.cpp model/articulo.cpp model/categoria.cpp model/mensaje.cpp model/usuario.cpp model/valoracion.cpp modelotabla/modelotablaarticulo.cpp modelotabla/modelotablacategoria.cpp modelotabla/modelotablamensaje.cpp modelotabla/modelotablausuario.cpp modelotabla/modelotablavaloracion.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents dlogin.ui mainwindow.ui dialogos/darticuloeditar.ui dialogos/dcategoriaeditar.ui dialogos/dchartartcategoria.ui dialogos/dmensajeeditar.ui dialogos/dusuario.ui dialogos/dvaloracioneditar.ui $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h controller/articulocontroller.h controller/categoriacontroller.h controller/mensajecontroller.h controller/usuariocontroller.h controller/valoracioncontroller.h dialogos/darticuloeditar.h dialogos/dcategoriaeditar.h dialogos/dchartartcategoria.h dialogos/dmensajeeditar.h dialogos/dusuario.h dialogos/dvaloracioneditar.h model/articulo.h model/categoria.h model/globalvariable.h model/mensaje.h model/usuario.h model/valoracion.h modelotabla/modelotablaarticulo.h modelotabla/modelotablacategoria.h modelotabla/modelotablamensaje.h modelotabla/modelotablausuario.h modelotabla/modelotablavaloracion.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp controller/articulocontroller.cpp controller/categoriacontroller.cpp controller/mensajecontroller.cpp controller/usuariocontroller.cpp controller/valoracioncontroller.cpp dialogos/darticuloeditar.cpp dialogos/dcategoriaeditar.cpp dialogos/dchartartcategoria.cpp dialogos/dmensajeeditar.cpp dialogos/dusuario.cpp dialogos/dvaloracioneditar.cpp model/articulo.cpp model/categoria.cpp model/mensaje.cpp model/usuario.cpp model/valoracion.cpp modelotabla/modelotablaarticulo.cpp modelotabla/modelotablacategoria.cpp modelotabla/modelotablamensaje.cpp modelotabla/modelotablausuario.cpp modelotabla/modelotablavaloracion.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.ui dialogos/darticuloeditar.ui dialogos/dcategoriaeditar.ui dialogos/dchartartcategoria.ui dialogos/dmensajeeditar.ui dialogos/dusuario.ui dialogos/dvaloracioneditar.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -499,66 +485,22 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_dlogin.cpp moc_mainwindow.cpp moc_articulocontroller.cpp moc_categoriacontroller.cpp moc_mensajecontroller.cpp moc_usuariocontroller.cpp moc_valoracioncontroller.cpp moc_darticuloeditar.cpp moc_dcategoriaeditar.cpp moc_dchartartcategoria.cpp moc_dmensajeeditar.cpp moc_dusuario.cpp moc_dvaloracioneditar.cpp moc_modelotablaarticulo.cpp moc_modelotablacategoria.cpp moc_modelotablamensaje.cpp moc_modelotablausuario.cpp moc_modelotablavaloracion.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_articulocontroller.cpp moc_categoriacontroller.cpp moc_mensajecontroller.cpp moc_usuariocontroller.cpp moc_valoracioncontroller.cpp moc_darticuloeditar.cpp moc_dcategoriaeditar.cpp moc_dchartartcategoria.cpp moc_dmensajeeditar.cpp moc_dusuario.cpp moc_dvaloracioneditar.cpp moc_modelotablaarticulo.cpp moc_modelotablacategoria.cpp moc_modelotablamensaje.cpp moc_modelotablausuario.cpp moc_modelotablavaloracion.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_dlogin.cpp moc_mainwindow.cpp moc_articulocontroller.cpp moc_categoriacontroller.cpp moc_mensajecontroller.cpp moc_usuariocontroller.cpp moc_valoracioncontroller.cpp moc_darticuloeditar.cpp moc_dcategoriaeditar.cpp moc_dchartartcategoria.cpp moc_dmensajeeditar.cpp moc_dusuario.cpp moc_dvaloracioneditar.cpp moc_modelotablaarticulo.cpp moc_modelotablacategoria.cpp moc_modelotablamensaje.cpp moc_modelotablausuario.cpp moc_modelotablavaloracion.cpp
-moc_dlogin.cpp: dlogin.h \
-		ui_dlogin.h \
-		mainwindow.h \
-		ui_mainwindow.h \
-		dlogin.h \
-		database.h \
-		jsonbuilder.h \
-		controller/valoracioncontroller.h \
-		model/valoracion.h \
-		model/globalvariable.h \
-		model/categoria.h \
-		model/articulo.h \
-		model/mensaje.h \
-		model/usuario.h \
-		controller/categoriacontroller.h \
-		controller/articulocontroller.h \
-		controller/mensajecontroller.h \
-		controller/usuariocontroller.h \
-		modelotabla/modelotablacategoria.h \
-		modelotabla/modelotablavaloracion.h \
-		modelotabla/modelotablaarticulo.h \
-		modelotabla/modelotablamensaje.h \
-		modelotabla/modelotablausuario.h \
-		dialogos/dcategoriaeditar.h \
-		ui_dcategoriaeditar.h \
-		dialogos/dvaloracioneditar.h \
-		ui_dvaloracioneditar.h \
-		dialogos/dmensajeeditar.h \
-		ui_dmensajeeditar.h \
-		dialogos/darticuloeditar.h \
-		ui_darticuloeditar.h \
-		dialogos/dusuario.h \
-		ui_dusuario.h \
-		dialogos/dchartartcategoria.h \
-		ui_dchartartcategoria.h \
-		moc_predefs.h \
-		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include '/media/mati/TOSHIBA EXT/2 DAM/ProyectoQT/ProyectoQT/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/media/mati/TOSHIBA EXT/2 DAM/ProyectoQT/ProyectoQT' -I'/media/mati/TOSHIBA EXT/2 DAM/ProyectoQT/ProyectoQT' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dlogin.h -o moc_dlogin.cpp
-
+	-$(DEL_FILE) moc_mainwindow.cpp moc_articulocontroller.cpp moc_categoriacontroller.cpp moc_mensajecontroller.cpp moc_usuariocontroller.cpp moc_valoracioncontroller.cpp moc_darticuloeditar.cpp moc_dcategoriaeditar.cpp moc_dchartartcategoria.cpp moc_dmensajeeditar.cpp moc_dusuario.cpp moc_dvaloracioneditar.cpp moc_modelotablaarticulo.cpp moc_modelotablacategoria.cpp moc_modelotablamensaje.cpp moc_modelotablausuario.cpp moc_modelotablavaloracion.cpp
 moc_mainwindow.cpp: mainwindow.h \
 		ui_mainwindow.h \
-		dlogin.h \
-		ui_dlogin.h \
-		mainwindow.h \
-		database.h \
-		jsonbuilder.h \
-		controller/valoracioncontroller.h \
 		model/valoracion.h \
-		model/globalvariable.h \
 		model/categoria.h \
 		model/articulo.h \
 		model/mensaje.h \
 		model/usuario.h \
 		controller/categoriacontroller.h \
+		model/globalvariable.h \
 		controller/articulocontroller.h \
 		controller/mensajecontroller.h \
 		controller/usuariocontroller.h \
+		controller/valoracioncontroller.h \
 		modelotabla/modelotablacategoria.h \
 		modelotabla/modelotablavaloracion.h \
 		modelotabla/modelotablaarticulo.h \
@@ -635,6 +577,10 @@ moc_dcategoriaeditar.cpp: dialogos/dcategoriaeditar.h \
 
 moc_dchartartcategoria.cpp: dialogos/dchartartcategoria.h \
 		ui_dchartartcategoria.h \
+		controller/articulocontroller.h \
+		model/articulo.h \
+		model/globalvariable.h \
+		model/categoria.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include '/media/mati/TOSHIBA EXT/2 DAM/ProyectoQT/ProyectoQT/moc_predefs.h' -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I'/media/mati/TOSHIBA EXT/2 DAM/ProyectoQT/ProyectoQT' -I'/media/mati/TOSHIBA EXT/2 DAM/ProyectoQT/ProyectoQT' -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include dialogos/dchartartcategoria.h -o moc_dchartartcategoria.cpp
@@ -700,13 +646,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_dlogin.h ui_mainwindow.h ui_darticuloeditar.h ui_dcategoriaeditar.h ui_dchartartcategoria.h ui_dmensajeeditar.h ui_dusuario.h ui_dvaloracioneditar.h
+compiler_uic_make_all: ui_mainwindow.h ui_darticuloeditar.h ui_dcategoriaeditar.h ui_dchartartcategoria.h ui_dmensajeeditar.h ui_dusuario.h ui_dvaloracioneditar.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_dlogin.h ui_mainwindow.h ui_darticuloeditar.h ui_dcategoriaeditar.h ui_dchartartcategoria.h ui_dmensajeeditar.h ui_dusuario.h ui_dvaloracioneditar.h
-ui_dlogin.h: dlogin.ui \
-		/usr/lib/qt5/bin/uic
-	/usr/lib/qt5/bin/uic dlogin.ui -o ui_dlogin.h
-
+	-$(DEL_FILE) ui_mainwindow.h ui_darticuloeditar.h ui_dcategoriaeditar.h ui_dchartartcategoria.h ui_dmensajeeditar.h ui_dusuario.h ui_dvaloracioneditar.h
 ui_mainwindow.h: mainwindow.ui \
 		/usr/lib/qt5/bin/uic
 	/usr/lib/qt5/bin/uic mainwindow.ui -o ui_mainwindow.h
@@ -745,65 +687,19 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-database.o: database.cpp database.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o database.o database.cpp
-
-dlogin.o: dlogin.cpp dlogin.h \
-		ui_dlogin.h \
-		mainwindow.h \
-		ui_mainwindow.h \
-		database.h \
-		jsonbuilder.h \
-		controller/valoracioncontroller.h \
-		model/valoracion.h \
-		model/globalvariable.h \
-		model/categoria.h \
-		model/articulo.h \
-		model/mensaje.h \
-		model/usuario.h \
-		controller/categoriacontroller.h \
-		controller/articulocontroller.h \
-		controller/mensajecontroller.h \
-		controller/usuariocontroller.h \
-		modelotabla/modelotablacategoria.h \
-		modelotabla/modelotablavaloracion.h \
-		modelotabla/modelotablaarticulo.h \
-		modelotabla/modelotablamensaje.h \
-		modelotabla/modelotablausuario.h \
-		dialogos/dcategoriaeditar.h \
-		ui_dcategoriaeditar.h \
-		dialogos/dvaloracioneditar.h \
-		ui_dvaloracioneditar.h \
-		dialogos/dmensajeeditar.h \
-		ui_dmensajeeditar.h \
-		dialogos/darticuloeditar.h \
-		ui_darticuloeditar.h \
-		dialogos/dusuario.h \
-		ui_dusuario.h \
-		dialogos/dchartartcategoria.h \
-		ui_dchartartcategoria.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dlogin.o dlogin.cpp
-
-jsonbuilder.o: jsonbuilder.cpp jsonbuilder.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o jsonbuilder.o jsonbuilder.cpp
-
 main.o: main.cpp mainwindow.h \
 		ui_mainwindow.h \
-		dlogin.h \
-		ui_dlogin.h \
-		database.h \
-		jsonbuilder.h \
-		controller/valoracioncontroller.h \
 		model/valoracion.h \
-		model/globalvariable.h \
 		model/categoria.h \
 		model/articulo.h \
 		model/mensaje.h \
 		model/usuario.h \
 		controller/categoriacontroller.h \
+		model/globalvariable.h \
 		controller/articulocontroller.h \
 		controller/mensajecontroller.h \
 		controller/usuariocontroller.h \
+		controller/valoracioncontroller.h \
 		modelotabla/modelotablacategoria.h \
 		modelotabla/modelotablavaloracion.h \
 		modelotabla/modelotablaarticulo.h \
@@ -825,21 +721,17 @@ main.o: main.cpp mainwindow.h \
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
 		ui_mainwindow.h \
-		dlogin.h \
-		ui_dlogin.h \
-		database.h \
-		jsonbuilder.h \
-		controller/valoracioncontroller.h \
 		model/valoracion.h \
-		model/globalvariable.h \
 		model/categoria.h \
 		model/articulo.h \
 		model/mensaje.h \
 		model/usuario.h \
 		controller/categoriacontroller.h \
+		model/globalvariable.h \
 		controller/articulocontroller.h \
 		controller/mensajecontroller.h \
 		controller/usuariocontroller.h \
+		controller/valoracioncontroller.h \
 		modelotabla/modelotablacategoria.h \
 		modelotabla/modelotablavaloracion.h \
 		modelotabla/modelotablaarticulo.h \
@@ -899,7 +791,11 @@ dcategoriaeditar.o: dialogos/dcategoriaeditar.cpp dialogos/dcategoriaeditar.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dcategoriaeditar.o dialogos/dcategoriaeditar.cpp
 
 dchartartcategoria.o: dialogos/dchartartcategoria.cpp dialogos/dchartartcategoria.h \
-		ui_dchartartcategoria.h
+		ui_dchartartcategoria.h \
+		controller/articulocontroller.h \
+		model/articulo.h \
+		model/globalvariable.h \
+		model/categoria.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dchartartcategoria.o dialogos/dchartartcategoria.cpp
 
 dmensajeeditar.o: dialogos/dmensajeeditar.cpp dialogos/dmensajeeditar.h \
@@ -957,9 +853,6 @@ modelotablausuario.o: modelotabla/modelotablausuario.cpp modelotabla/modelotabla
 modelotablavaloracion.o: modelotabla/modelotablavaloracion.cpp modelotabla/modelotablavaloracion.h \
 		model/valoracion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o modelotablavaloracion.o modelotabla/modelotablavaloracion.cpp
-
-moc_dlogin.o: moc_dlogin.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dlogin.o moc_dlogin.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

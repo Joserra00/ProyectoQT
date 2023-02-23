@@ -12,8 +12,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent){
 	modeloTablaCategoria=NULL;
 	modeloTablaMensaje=NULL;
 	modeloTablaValoracion=NULL;
-	connect(btnActTablas,SIGNAL(clicked()),
-			this,SLOT(slotActualizarTablas()));
+
 //instanciamos los dialogos a null
 	dCategoriaEditar = NULL;
 	dValoracionEditar = NULL;
@@ -57,11 +56,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent){
 	
 }
 
-void MainWindow::slotActualizarTablas(){
-	artCtrl->selectAll();
 
-
-}
 //MANIPULACION DE TABLA VALORACION
 void MainWindow::crearTablaValoracion(){
 	modeloTablaValoracion = new ModeloTablaValoracion(&listaValoracion);
@@ -76,17 +71,13 @@ void MainWindow::crearTablaValoracion(){
 void MainWindow::slotPeticionValoracionTerminada(){
 	valCtrl->getValoraciones(&listaValoracion);
 	if(modeloTablaValoracion==NULL){
-		qDebug()<<"entro en slotPeticionValoracionTerminada primero, tamaño lista valoracion:"<<listaValoracion.size();
 		crearTablaValoracion();
-	}else
-		qDebug()<<"entro en slotPeticionValoracionTerminada, tamaño lista valoracion:"<<listaValoracion.size();
-
+	}
 	modeloTablaValoracion->tablaModificada();
 
 }
 void MainWindow::slotDialogoValoracion(const QModelIndex &index){
 	int i =  index.row();
-	qDebug()<<listaValoracion.at(i)->name;
 	if(dValoracionEditar==NULL){
 		dValoracionEditar = new DValoracionEditar(listaValoracion.at(i));
 		}
@@ -137,17 +128,14 @@ void MainWindow::crearTablaArticulo(){
 void MainWindow::slotPeticionArticuloTerminada(){
 	artCtrl->getArticulos(&listaArticulo);
 	if(modeloTablaArticulo==NULL){
-		qDebug()<<"entro en slotPeticionArticuloTerminada primero, tamaño lista articulo:"<<listaArticulo.size();
 		crearTablaArticulo();
-	}else
-		qDebug()<<"entro en slotPeticionArticuloTerminada, tamaño lista articulo:"<<listaArticulo.size();
+	}
 
 	modeloTablaArticulo->tablaModificada();
 		
 }
 void MainWindow::slotDialogoArticulo(const QModelIndex &index){
-	int i =  index.row();
-	qDebug()<<listaArticulo.at(i)->name;
+	int i =  index.row();;
 	if (dArticuloEditar==NULL)
 		dArticuloEditar = new DArticuloEditar(listaArticulo.at(i));
 	
@@ -161,12 +149,10 @@ void MainWindow::slotDialogoArticuloFinalizado(int result) {
 	if(result==QDialog::Accepted){
 		dArticuloEditar=NULL;
 		delete dArticuloEditar;
-		qDebug()<<"se acepta el dialogo";
 		artCtrl->selectAll();
 	
 	}
 	if(result==QDialog::Rejected){
-		qDebug()<<"se reject el dialogo";
 		dArticuloEditar=NULL;
 		delete dArticuloEditar;
 
@@ -198,17 +184,14 @@ void MainWindow::crearTablaCategoria(){
 void MainWindow::slotPeticionCategoriaTerminada(){
 	catCtrl->getCategorias(&listaCategoria);
 	if(modeloTablaCategoria==NULL){
-		qDebug()<<"entro en slotPeticionCategoriaTerminada primero, tamaño lista categoria:"<<listaCategoria.size();
 		crearTablaCategoria();
-	}else
-		qDebug()<<"entro en slotPeticionCategoriaTerminada, tamaño lista categoria:"<<listaCategoria.size();
+	}
 
 	modeloTablaCategoria->tablaModificada();
 
 }
 void MainWindow::slotDialogoCategoria(const QModelIndex &index){
 	int i =  index.row();
-	qDebug()<<listaCategoria.at(i)->name;
 	if(dCategoriaEditar==NULL){
 		dCategoriaEditar = new DCategoriaEditar(listaCategoria.at(i));
 		}
@@ -223,12 +206,10 @@ void MainWindow::slotDialogoCategoriaFinalizado(int result){
 	if(result==QDialog::Accepted){
 		dCategoriaEditar=NULL;
 		delete dCategoriaEditar;
-		qDebug()<<"se acepta el dialogo";
 		catCtrl->selectAll();
 	
 	}
 	if(result==QDialog::Rejected){
-		qDebug()<<"se reject el dialogo";
 		dCategoriaEditar=NULL;
 		delete dCategoriaEditar;
 
@@ -259,17 +240,14 @@ void MainWindow::crearTablaMensaje(){
 void MainWindow::slotPeticionMensajeTerminada(){
 	menCtrl->getMensajes(&listaMensaje);
 	if(modeloTablaMensaje==NULL){
-		qDebug()<<"entro en slotPeticionMensajeTerminada primero, tamaño lista mensaje:"<<listaMensaje.size();
 		crearTablaMensaje();
-	}else
-		qDebug()<<"entro en slotPeticionMensajeTerminada, tamaño lista mensaje:"<<listaMensaje.size();
+	}
 
 	modeloTablaMensaje->tablaModificada();
 
 }
 void MainWindow::slotDialogoMensaje(const QModelIndex &index){
 	int i =  index.row();
-	qDebug()<<listaMensaje.at(i)->name;
 	if(dMensajeEditar==NULL){
 		dMensajeEditar = new DMensajeEditar(listaMensaje.at(i));
 		}
@@ -285,12 +263,10 @@ void MainWindow::slotDialogoMensajeFinalizado(int result){
 	if(result==QDialog::Accepted){
 		dMensajeEditar=NULL;
 		delete dMensajeEditar;
-		qDebug()<<"se acepta el dialogo";
 		menCtrl->selectAll();
 	
 	}
 	if(result==QDialog::Rejected){
-		qDebug()<<"se reject el dialogo";
 		dMensajeEditar=NULL;
 		delete dMensajeEditar;
 
@@ -320,11 +296,9 @@ void MainWindow::crearTablaUsuario(){
 }
 void MainWindow::slotPeticionUsuarioTerminada(){
 	usuCtrl->getUsuarios(&listaUsuario);
-	if(modeloTablaUsuario==NULL){
-		qDebug()<<"entro en slotPeticionUsuarioTerminada primero, tamaño lista usuario:"<<listaUsuario.size();
+	if(modeloTablaUsuario==NULL){;
 		crearTablaUsuario();
-	}else
-		qDebug()<<"entro en slotPeticionUsuarioTerminada, tamaño lista usuario:"<<listaUsuario.size();
+	}
 
 	modeloTablaUsuario->tablaModificada();
 		
@@ -332,7 +306,6 @@ void MainWindow::slotPeticionUsuarioTerminada(){
 }
 void MainWindow::slotDialogoUsuario(const QModelIndex &index){
 	int i =  index.row();
-	qDebug()<<listaUsuario.at(i)->name;
 	if(dUsuario==NULL){
 		dUsuario = new DUsuario(listaUsuario.at(i));
 		}
@@ -348,18 +321,18 @@ void MainWindow::slotDialogoUsuarioFinalizado(int result){
 	if(result==QDialog::Accepted){
 		dUsuario=NULL;
 		delete dUsuario;
-		qDebug()<<"se acepta el dialogo";
 		usuCtrl->selectAll();
 	
 	}
 	if(result==QDialog::Rejected){
-		qDebug()<<"se reject el dialogo";
 		dUsuario=NULL;
 		delete dUsuario;
 
 	}
 }
+void MainWindow::slotActualizarTablas(){
 
+}
 void MainWindow::slotDialogoUsuarioInsertar(){
 if(dUsuario==NULL){
 		dUsuario = new DUsuario();
@@ -373,7 +346,7 @@ if(dUsuario==NULL){
 
 void MainWindow::slotDialogoChartArtCat(){
 	if(dChartArtCategoria==NULL){
-		dChartArtCategoria = new DChartArtCategoria();
+		dChartArtCategoria = new DChartArtCategoria(&listaCategoria);
 		}
 		dChartArtCategoria->show();
 
@@ -401,6 +374,7 @@ void MainWindow::crearActions(){
 	accionInsertMensaje = new QAction("Insertar Mensaje");
 	connect(accionInsertMensaje,SIGNAL(triggered()),
 		this,SLOT(slotDialogoMensajeInsertar()));
+		
 	accionChartArtCategoria = new QAction("Chart Articulo Categoria");
 	connect(accionChartArtCategoria,SIGNAL(triggered()),
 		this,SLOT(slotDialogoChartArtCat()));

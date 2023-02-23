@@ -83,7 +83,6 @@ QVariant ModeloTablaArticulo::headerData(int section,Qt::Orientation orientation
 }
 
 void ModeloTablaArticulo::tablaModificada(){
-	qDebug()<<"se actualiza la tabla";
 	emit layoutChanged();
 
 

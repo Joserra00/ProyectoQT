@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>925</width>
-    <height>573</height>
+    <width>1077</width>
+    <height>663</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QFrame" name="frameArticuloCategoria">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>60</y>
-     <width>811</width>
-     <height>471</height>
+     <x>-10</x>
+     <y>0</y>
+     <width>1091</width>
+     <height>671</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -33,8 +33,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>811</width>
-      <height>471</height>
+      <width>1091</width>
+      <height>671</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout"/>

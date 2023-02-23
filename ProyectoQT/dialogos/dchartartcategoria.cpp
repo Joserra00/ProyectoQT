@@ -2,14 +2,18 @@
 #include "dchartartcategoria.h"
 #include <QDebug>
 
-DChartArtCategoria::DChartArtCategoria(QWidget *parent): QDialog(parent){
+DChartArtCategoria::DChartArtCategoria(QVector<Categoria*>*categorias,QWidget *parent): QDialog(parent){
 		setupUi(this);
+		artCtrl = new ArticuloController();
+			connect(artCtrl,SIGNAL(peticionTerminada()),
+			this,SLOT(slotEjemplo()));
 	QBarSeries *barSeries = new QBarSeries();
-	QBarSet *set1 = new QBarSet("Numero de Articulos en una categoria");
-	for(int i = 0; i<5; i++){
-		*set1 << i;
-		}
 	
+	set1 = new QBarSet("Numero de Articulos en una categoria");
+	for(int i = 0; i<categorias->size(); i++){
+		artCtrl->getCantArticulosByCategoria(categorias->at(i)->id);
+		
+		}
 	barSeries->append(set1);
 
 	// Crear un objeto QChart y agregar la serie de barras al gráfico
@@ -19,18 +23,17 @@ DChartArtCategoria::DChartArtCategoria(QWidget *parent): QDialog(parent){
 
 	// Crear un objeto QValueAxis para el eje X y agregarlo al gráfico
 	QBarCategoryAxis *axisX = new QBarCategoryAxis();
-	axisX->append("Categoría 1");
-	axisX->append("Categoría 2");
-	axisX->append("Categoría 3");
-	axisX->append("Categoría 4");
-	axisX->append("Categoría 5");
+	QFont font("Arial", 10); // Crear una fuente personalizada con tamaño 10
+	for(int i = 0; i<categorias->size(); i++){
+		axisX->append(categorias->at(i)->name);
+		}
 	axisX->setTitleText("Categoria");
 	chart->addAxis(axisX, Qt::AlignBottom);
 	barSeries->attachAxis(axisX);
 
 	// Crear un objeto QValueAxis para el eje Y y agregarlo al gráfico
 	QValueAxis *axisY = new QValueAxis();
-	axisY->setRange(0,20);
+	axisY->setRange(0,24);
 	axisY->setTitleText("Cantidad Articulos");
 	chart->addAxis(axisY, Qt::AlignLeft);
 	barSeries->attachAxis(axisY);
@@ -47,6 +50,7 @@ DChartArtCategoria::DChartArtCategoria(QWidget *parent): QDialog(parent){
 
 
 void DChartArtCategoria::slotEjemplo(){
+	*set1<<artCtrl->getCantidad();
 
 }
 

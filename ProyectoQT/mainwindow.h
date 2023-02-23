@@ -7,8 +7,6 @@
 #include <QMainWindow>
 #include <QHBoxLayout>
 #include <QMainWindow>
-#include "dlogin.h"
-#include "database.h"
 #include <QDebug>
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlDatabase>
@@ -21,8 +19,6 @@
 #include <QtNetwork/QNetworkReply>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QByteArray>
-#include "jsonbuilder.h"
-#include "controller/valoracioncontroller.h"
 #include <QModelIndex>
 #include <QAbstractTableModel>
 #include <QTableView>
@@ -35,6 +31,7 @@
 #include "controller/articulocontroller.h"
 #include "controller/mensajecontroller.h"
 #include "controller/usuariocontroller.h"
+#include "controller/valoracioncontroller.h"
 #include "modelotabla/modelotablacategoria.h"
 #include "modelotabla/modelotablavaloracion.h"
 #include "modelotabla/modelotablaarticulo.h"

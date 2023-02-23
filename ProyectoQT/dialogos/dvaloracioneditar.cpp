@@ -13,7 +13,7 @@ DValoracionEditar::DValoracionEditar(Valoracion *valoracionPasada,QWidget *paren
 	connect(btnGuardar,SIGNAL(clicked()),
 			this,SLOT(slotGuardarDialogo()));
 			connect(btnCancelar,SIGNAL(clicked()),
-			this,SLOT(slotCancelarDialogo()));
+			this,SLOT(slotBorrarDialogo()));
 		valCtrl = new ValoracionController();
 		connect(valCtrl,SIGNAL(peticionTerminada()),
 			this,SLOT(slotEmitirAccept()));

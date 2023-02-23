@@ -205,7 +205,6 @@ void CategoriaController::getCategorias(QVector<Categoria*> *listaCategoria){
             		,partner["descripcion_categoria"].toString());
             		listaCategoria->append(categoria);
             	}
-            	qDebug()<<listaCategoria->size();
             	
             
             }

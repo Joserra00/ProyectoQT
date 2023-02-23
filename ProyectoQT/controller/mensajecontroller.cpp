@@ -218,7 +218,6 @@ void MensajeController::getMensajes(QVector<Mensaje*> *listaMensaje){
             		partner["contenido"].toString());
             		listaMensaje->append(mensaje);
             	}
-            	qDebug()<<listaMensaje->size();
             	
             
             }

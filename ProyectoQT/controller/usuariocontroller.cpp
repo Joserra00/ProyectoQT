@@ -69,7 +69,6 @@ void UsuarioController::editarUsuario(Usuario *usuario){
         QJsonObject fields;
      
      	QJsonArray idArray;
-     	qDebug()<<usuario->fecha_nacimiento;
         idArray.append(usuario->id);
         fields.insert("name",usuario->name);
         fields.insert("email",usuario->email);
@@ -181,7 +180,6 @@ void UsuarioController::selectAll(){
 	request.setUrl(QUrl(globalvariable::JSONRPC_URL));
 	request.setRawHeader(QByteArray("Content-Type"), QByteArray("application/json"));
 	QNetworkReply *reply = manager->post(request, postData);
-	qDebug()<<" No Se ha realizado la peticion";
 	
       
 	
@@ -190,7 +188,6 @@ void UsuarioController::selectAll(){
 
 }
 void UsuarioController::slotPeticion(QNetworkReply* reply){
-qDebug()<<"Se ha realizado la peticion";
  if (reply->error() != QNetworkReply::NoError) {
             qDebug() << "Error: " << reply->errorString();
         } else {
@@ -225,7 +222,6 @@ void UsuarioController::getUsuarios(QVector<Usuario*> *listaUsuario){
             		partner["contrasenya"].toString());
             		listaUsuario->append(usuario);
             	}
-            	qDebug()<<listaUsuario->size();
             	
             
             }

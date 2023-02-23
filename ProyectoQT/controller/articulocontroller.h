@@ -23,10 +23,12 @@ public:
 	void getArticulos(QVector<Articulo*> *);
 	void editarArticulo(Articulo *);
 	void eliminarArticulo(int);
+	void getCantArticulosByCategoria(int);
+	int getCantidad();
 	QJsonDocument responseData;
 	
 public slots:
-
+	void slotPeticionCant(QNetworkReply*);
 	void slotPeticion(QNetworkReply*);
 signals:
     	void peticionTerminada();
